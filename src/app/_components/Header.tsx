@@ -23,7 +23,7 @@ function MenuLinks({
         <li key={label}>
           <a
             href={href}
-            className="text-lg text-white"
+            className="text-lg text-[#C1C1C1] hover:text-[#4FC3F7]"
             onClick={onClick}
             aria-current={current ? "page" : undefined}
           >
@@ -39,7 +39,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="relative bg-[#222831] border-b-1 border-[#EEEEEE]/10 px-12 py-6">
+    <header className="relative px-12 py-6">
       <div className="flex items-center justify-between">
         <h1 className="text-white text-2xl font-bold">Natan Rocha</h1>
 
@@ -53,14 +53,14 @@ export default function Header() {
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
 
-        <nav className="hidden md:flex" aria-label="Main navigation">
+        <nav className="hidden md:flex z-10" aria-label="Main navigation">
           <MenuLinks />
         </nav>
       </div>
 
       <nav
         id="mobile-menu"
-        className={`fixed top-0 left-0 h-full w-1/2 bg-[#222831] z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full w-4/5 bg-[#1A1A1A] z-50 transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:hidden`}
         aria-label="Main navigation"
