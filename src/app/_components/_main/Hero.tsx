@@ -37,7 +37,7 @@ export default function Hero() {
           <div
             role="img"
             aria-label="mago"
-            className="text-white text-2xl lg:text-3xl"
+            className="text-white relative top-[-3px] text-3xl"
           >
             🧙‍♂️
           </div>
