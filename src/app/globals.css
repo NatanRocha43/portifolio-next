@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+body {
+    font-family: var(--font-poppins), sans-serif;
+}
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #EEEEEE;
+}
+
+
+  
