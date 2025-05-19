@@ -41,7 +41,7 @@ export default function Header() {
   return (
     <header id="header" className="relative px-12 py-6">
       <div className="flex items-center justify-between">
-        <span role="logotipo" className="text-white text-2xl font-bold">Natan Rocha</span>
+        <span role="logo" className="text-white text-2xl font-bold">Natan Rocha</span>
         <button
           className="md:hidden text-white z-50"
           onClick={() => setIsOpen(!isOpen)}
