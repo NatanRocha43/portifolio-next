@@ -34,13 +34,6 @@ export default function Hero() {
               Front end
             </span>
           </h2>
-          <div
-            role="img"
-            aria-label="mago"
-            className="text-white relative top-[-3px] text-3xl"
-          >
-            🧙‍♂️
-          </div>
         </div>
 
         <div className="px-0.5 lg:px-[unset]">
