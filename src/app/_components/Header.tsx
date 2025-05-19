@@ -39,11 +39,11 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="relative px-12 py-6">
+    <header id="header" className="relative px-12 py-6">
       <div className="flex items-center justify-between">
         <span role="logotipo" className="text-white text-2xl font-bold">Natan Rocha</span>
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-white z-50"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={isOpen}
@@ -59,7 +59,7 @@ export default function Header() {
 
       <nav
         id="mobile-menu"
-        className={`fixed top-0 left-0 h-full w-4/5 bg-[#1A1A1A] z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full w-full bg-[#1A1A1A] z-40 transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:hidden`}
         aria-label="Main navigation"
