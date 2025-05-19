@@ -24,19 +24,23 @@ export default function Hero() {
           </h1>
         </div>
 
-        <div>
-          <h2 className="flex align-center text-3xl lg:text-4xl font-extrabold">
+        <div
+          className="flex items-center gap-2"
+          role="group"
+          aria-label="Título Front end com ícone"
+        >
+          <h2 className="text-3xl lg:text-4xl font-extrabold leading-tight">
             <span className="bg-gradient-to-r from-[#4FC3F7] to-white bg-clip-text text-transparent">
               Front end
             </span>
-            <span
-              role="img"
-              aria-label="mago"
-              className="ml-2 align-middle text-white h-[43px] lg:h-[50px]"
-            >
-              🧙‍♂️
-            </span>
           </h2>
+          <div
+            role="img"
+            aria-label="mago"
+            className="text-white text-2xl lg:text-3xl"
+          >
+            🧙‍♂️
+          </div>
         </div>
 
         <div className="px-0.5 lg:px-[unset]">
