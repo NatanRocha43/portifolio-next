@@ -25,14 +25,14 @@ export default function Hero() {
         </div>
 
         <div>
-          <h2 className="inline-block text-3xl lg:text-4xl font-extrabold">
+          <h2 className="flex align-center text-3xl lg:text-4xl font-extrabold">
             <span className="bg-gradient-to-r from-[#4FC3F7] to-white bg-clip-text text-transparent">
               Front end
             </span>
             <span
               role="img"
               aria-label="mago"
-              className="ml-2 align-middle text-white"
+              className="ml-2 align-middle text-white h-[43px] lg:h-[50px]"
             >
               🧙‍♂️
             </span>
