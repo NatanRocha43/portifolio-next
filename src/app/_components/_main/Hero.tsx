@@ -38,11 +38,10 @@ export default function Hero() {
 
         <div className="px-0.5 lg:px-[unset]">
           <h3 className="max-w-xs lg:max-w-3xl text-center text-sm lg:text-lg font-medium leading-[30px] text-[#E1E1E1]">
-            Desenvolvedor front-end apaixonado, com expertise em interfaces
-            dinâmicas, usabilidade e performance web, me destaco diante dos
-            desafios de criar experiências digitais eficientes e intuitivas,
-            transformando requisitos complexos em soluções interativas que
-            impulsionam a inovação.
+            Desenvolvedor front-end com foco em interfaces dinâmicas, usabilidade e performance web. 
+            Atuo na criação de soluções digitais eficientes e intuitivas, 
+            traduzindo requisitos complexos em experiências funcionais 
+            que agregam valor ao produto.
           </h3>
         </div>
 
