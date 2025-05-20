@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <div
-      className="h-[calc(100vh-80px)]  flex items-center justify-center bg-[url('/bg-hero.svg')] bg-center bg-no-repeat rounded-full lg:rounded-none"
+      className="h-[calc(100vh-80px)] flex items-center justify-center bg-[url('/bg-hero.svg')] bg-center bg-no-repeat rounded-full lg:rounded-none"
       aria-label="Seção principal do perfil de Natan Rocha"
     >
       <div className="flex flex-col items-center justify-center gap-4">
@@ -13,8 +13,9 @@ export default function Hero() {
             src="/self.svg"
             alt="Foto de perfil de Natan Rocha"
             width={200}
-            height={190}
-            className="rounded-full"
+            height={200}
+            loading="lazy" 
+            className="rounded-full w-[200px] h-[200px]"
           />
         </div>
 
@@ -37,7 +38,7 @@ export default function Hero() {
         </div>
 
         <div className="px-0.5 lg:px-[unset]">
-          <h3 className="max-w-xs lg:max-w-3xl text-center text-sm lg:text-lg font-medium leading-[30px] text-[#E1E1E1]">
+          <h3 className="max-w-xs lg:max-w-3xl text-center text-sm lg:text-base font-medium leading-[30px] text-[#E1E1E1]">
             Desenvolvedor front-end com foco em interfaces dinâmicas, usabilidade e performance web. 
             Atuo na criação de soluções digitais eficientes e intuitivas, 
             traduzindo requisitos complexos em experiências funcionais 
