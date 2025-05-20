@@ -18,7 +18,7 @@ function MenuLinks({
   isMobile?: boolean;
 }) {
   return (
-    <ul className={`flex ${isMobile ? "flex-col gap-6 mt-16 p-6" : "gap-12"}`}>
+    <ul className={`flex ${isMobile ? "flex-col gap-4 mt-8 p-4" : "gap-12"}`}>
       {NAV_LINKS.map(({ label, href, current }) => (
         <li key={label}>
           <a
@@ -39,9 +39,18 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header id="header" className="fixed top-0 left-0 w-full px-12 py-6 z-50 bg-[#1A1A1A]">
+    <header
+      id="header"
+      className="fixed top-0 left-0 w-full px-12 py-6 z-50 bg-[#1A1A1A]"
+    >
       <div className="flex items-center justify-between">
-        <span role="img" aria-label="Logotipo Natan Rocha" className="text-white text-2xl font-bold">Natan Rocha</span>
+        <span
+          role="img"
+          aria-label="Logotipo Natan Rocha"
+          className="text-white text-2xl font-bold"
+        >
+          Natan Rocha
+        </span>
         <button
           className="md:hidden text-white z-50"
           onClick={() => setIsOpen(!isOpen)}
@@ -59,10 +68,11 @@ export default function Header() {
 
       <nav
         id="mobile-menu"
-        className={`fixed top-0 left-0 h-full w-full bg-[#1A1A1A] z-40 transform transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } md:hidden`}
+        className={`fixed top-0 left-0 h-full w-full bg-[#1A1A1A] z-40 transition-transform duration-300 ease-in-out transform md:hidden will-change-transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full pointer-events-none"
+        }`}
         aria-label="Main navigation"
+        aria-hidden={!isOpen}
       >
         <MenuLinks isMobile onClick={() => setIsOpen(false)} />
       </nav>
