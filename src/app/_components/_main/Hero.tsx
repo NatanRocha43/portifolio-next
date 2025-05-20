@@ -4,33 +4,31 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <div
-      className="h-screen flex items-center justify-center bg-[url('/bg-hero.svg')] bg-center bg-no-repeat bg-cover"
+      className="relative h-screen flex items-center justify-center"
       aria-label="Seção principal do perfil de Natan Rocha"
     >
-      <link
-        rel="preload"
-        as="image"
-        href="/bg-hero.svg"
+      <Image
+        src="/bg-hero.svg"
+        alt="Background hero"
+        fill
+        priority
+        style={{ objectFit: "cover", objectPosition: "center" }}
+        aria-hidden="true"
       />
-      
-      <div className="flex flex-col items-center justify-center gap-4">
-        <div>
-          <Image
-            src="/self.svg"
-            alt="Foto de perfil de Natan Rocha"
-            width={200}
-            height={200}
-            loading="eager"
-            priority
-            className="rounded-full w-[200px] h-[200px]"
-          />
-        </div>
+      <div className="relative flex flex-col items-center justify-center gap-4 z-10">
+        <Image
+          src="/self.svg"
+          alt="Foto de perfil de Natan Rocha"
+          width={200}
+          height={200}
+          loading="eager"
+          priority
+          className="rounded-full w-[200px] h-[200px]"
+        />
 
-        <div>
-          <h1 className="text-5xl lg:text-6xl font-bold tracking-[-0.06em] text-white">
-            Natan Rocha
-          </h1>
-        </div>
+        <h1 className="text-5xl lg:text-6xl font-bold tracking-[-0.06em] text-white">
+          Natan Rocha
+        </h1>
 
         <div
           className="flex items-center gap-2"
@@ -44,8 +42,8 @@ export default function Hero() {
           </h2>
         </div>
 
-        <div className="px-0.5 lg:px-[unset]">
-          <h3 className="max-w-xs lg:max-w-3xl text-center text-sm lg:text-base font-medium leading-[30px] text-[#E1E1E1]">
+        <div className="px-0.5 lg:px-[unset] max-w-xs lg:max-w-3xl">
+          <h3 className="text-center text-sm lg:text-base font-medium leading-[30px] text-[#E1E1E1]">
             Desenvolvedor front-end com foco em interfaces dinâmicas, usabilidade e performance web. 
             Atuo na criação de soluções digitais eficientes e intuitivas, 
             traduzindo requisitos complexos em experiências funcionais 
@@ -53,24 +51,18 @@ export default function Hero() {
           </h3>
         </div>
 
-        <div>
-          <a
-            href="https://wa.me/5515997109030?text=Vim%20pelo%20seu%20portfólio!"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Abrir WhatsApp para entrar em contato com Natan Rocha"
-            role="button"
-            className="flex w-fit items-center gap-2 rounded-full border border-[#4FC3F7] px-6 py-3 text-sm font-medium text-white"
-            aria-label="Contato via WhatsApp"
-          >
-            Contact Me
-            <MessageCircle
-              aria-hidden="true"
-              className="h-5 w-5"
-              strokeWidth={2}
-            />
-          </a>
-        </div>
+        <a
+          href="https://wa.me/5515997109030?text=Vim%20pelo%20seu%20portfólio!"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Abrir WhatsApp para entrar em contato com Natan Rocha"
+          role="button"
+          className="flex w-fit items-center gap-2 rounded-full border border-[#4FC3F7] px-6 py-3 text-sm font-medium text-white"
+          aria-label="Contato via WhatsApp"
+        >
+          Contact Me
+          <MessageCircle aria-hidden="true" className="h-5 w-5" strokeWidth={2} />
+        </a>
       </div>
     </div>
   );
