@@ -4,9 +4,15 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <div
-      className="h-screen flex items-center justify-center bg-[url('/bg-hero.svg')] bg-center bg-no-repeat rounded-full lg:rounded-none"
+      className="h-screen flex items-center justify-center bg-[url('/bg-hero.svg')] bg-center bg-no-repeat bg-cover"
       aria-label="Seção principal do perfil de Natan Rocha"
     >
+      <link
+        rel="preload"
+        as="image"
+        href="/bg-hero.svg"
+      />
+      
       <div className="flex flex-col items-center justify-center gap-4">
         <div>
           <Image
@@ -14,7 +20,8 @@ export default function Hero() {
             alt="Foto de perfil de Natan Rocha"
             width={200}
             height={200}
-            loading="lazy" 
+            loading="eager"
+            priority
             className="rounded-full w-[200px] h-[200px]"
           />
         </div>
@@ -51,6 +58,8 @@ export default function Hero() {
             href="https://wa.me/5515997109030?text=Vim%20pelo%20seu%20portfólio!"
             target="_blank"
             rel="noopener noreferrer"
+            title="Abrir WhatsApp para entrar em contato com Natan Rocha"
+            role="button"
             className="flex w-fit items-center gap-2 rounded-full border border-[#4FC3F7] px-6 py-3 text-sm font-medium text-white"
             aria-label="Contato via WhatsApp"
           >
