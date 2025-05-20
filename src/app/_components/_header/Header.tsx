@@ -5,18 +5,22 @@ import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "Home", href: "#", current: true },
-  { label: "About", href: "#" },
-  { label: "Projects", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
 ];
 
 function MenuLinks({
   onClick,
   isMobile = false,
+  hidden = false,
 }: {
   onClick?: () => void;
   isMobile?: boolean;
+  hidden?: boolean;
 }) {
+  if (hidden) return null;
+
   return (
     <ul className={`flex ${isMobile ? "flex-col gap-4 mt-8 p-4" : "gap-12"}`}>
       {NAV_LINKS.map(({ label, href, current }) => (
@@ -51,6 +55,7 @@ export default function Header() {
         >
           Natan Rocha
         </span>
+
         <button
           className="md:hidden text-white z-50"
           onClick={() => setIsOpen(!isOpen)}
@@ -58,10 +63,14 @@ export default function Header() {
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? (
+            <X size={28} aria-hidden="true" />
+          ) : (
+            <Menu size={28} aria-hidden="true" />
+          )}
         </button>
 
-        <nav className="hidden md:flex z-10" aria-label="Main navigation">
+        <nav className="hidden md:flex z-10" aria-label="Navegação principal">
           <MenuLinks />
         </nav>
       </div>
@@ -69,12 +78,12 @@ export default function Header() {
       <nav
         id="mobile-menu"
         className={`fixed top-0 left-0 h-full w-full bg-[#1A1A1A] z-40 transition-transform duration-300 ease-in-out transform md:hidden will-change-transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full pointer-events-none"
+          isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
-        aria-label="Main navigation"
+        aria-label="Navegação principal"
         aria-hidden={!isOpen}
       >
-        <MenuLinks isMobile onClick={() => setIsOpen(false)} />
+        <MenuLinks isMobile onClick={() => setIsOpen(false)} hidden={!isOpen} />
       </nav>
     </header>
   );
