@@ -39,7 +39,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header id="header" className="relative px-12 py-6">
+    <header id="header" className="fixed top-0 left-0 w-full px-12 py-6 z-50 bg-[#1A1A1A]">
       <div className="flex items-center justify-between">
         <span role="img" aria-label="Logotipo Natan Rocha" className="text-white text-2xl font-bold">Natan Rocha</span>
         <button

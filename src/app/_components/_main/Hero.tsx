@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <div
-      className="h-[calc(100vh-80px)] flex items-center justify-center bg-[url('/bg-hero.svg')] bg-center bg-no-repeat rounded-full lg:rounded-none"
+      className="h-screen flex items-center justify-center bg-[url('/bg-hero.svg')] bg-center bg-no-repeat rounded-full lg:rounded-none"
       aria-label="Seção principal do perfil de Natan Rocha"
     >
       <div className="flex flex-col items-center justify-center gap-4">
