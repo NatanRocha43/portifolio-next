@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <div
-      className="relative h-screen flex items-center justify-center"
+      className="relative h-screen flex items-center justify-center snap-start"
       aria-label="Seção principal do perfil de Natan Rocha"
     >
       <Image
