@@ -1,5 +1,6 @@
-import { MessageCircle } from "lucide-react";
 import Image from "next/image";
+import IconButton from "../UI/IconButton";
+import { MessageCircle } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -50,19 +51,15 @@ export default function Hero() {
             que agregam valor ao produto.
           </h3>
         </div>
-
-        <a
-          href="https://wa.me/5515997109030?text=Vim%20pelo%20seu%20portfólio!"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Abrir WhatsApp para entrar em contato com Natan Rocha"
-          role="button"
-          className="flex w-fit items-center gap-2 rounded-full border border-[#4FC3F7] px-6 py-3 text-sm font-medium text-white"
-          aria-label="Contato via WhatsApp"
-        >
-          Contact Me
-          <MessageCircle aria-hidden="true" className="h-5 w-5" strokeWidth={2} />
-        </a>
+        <IconButton
+        href="https://wa.me/5515997109030?text=Vim%20pelo%20seu%20portfólio!"
+        target="_blank"
+        rel="noopener noreferrer"
+        ariaLabel="Contato via WhatsApp"
+        text="Contact Me"
+        icon={<MessageCircle aria-hidden="true" className="h-5 w-5" strokeWidth={2} />}
+        className="flex w-fit"
+      />
       </div>
     </div>
   );

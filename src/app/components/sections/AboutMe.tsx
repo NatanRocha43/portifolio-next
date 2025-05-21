@@ -1,3 +1,4 @@
+import IconButton from "../UI/IconButton";
 import { ArrowDownToLine } from "lucide-react";
 
 export default function AboutMe() {
@@ -21,17 +22,15 @@ export default function AboutMe() {
                     Quer conhecer melhor um pouco mais sobre minha trajetória?
                     É só clicar no botão abaixo e dar uma olhada no meu currículo.
                 </p>
-                <a
+                <IconButton
                     href="./natan-rocha-front-end.pdf"
                     download
                     target="_blank"
                     rel="noopener noreferrer"
-                    role="button"
-                    aria-label="Download do currículo em PDF"
-                    className="inline-flex items-center gap-2 rounded-full border border-[#4FC3F7] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#4FC3F7]/10"
-                >
-                    Download CV <ArrowDownToLine className="h-5 w-5" />
-                </a>
+                    ariaLabel="Download do currículo em PDF"
+                    text="Download CV"
+                    icon={<ArrowDownToLine className="h-5 w-5" />}
+                />
             </div>
         </section>
     );

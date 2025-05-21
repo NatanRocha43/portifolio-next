@@ -1,58 +1,14 @@
-"use client";
-
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-
-const NAV_LINKS = [
-  { label: "Home", href: "#", current: true },
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
-
-function MenuLinks({
-  onClick,
-  isMobile = false,
-  hidden = false,
-}: {
-  onClick?: () => void;
-  isMobile?: boolean;
-  hidden?: boolean;
-}) {
-  if (hidden) return null;
-
-  return (
-    <ul className={`flex ${isMobile ? "flex-col gap-4 mt-8 p-4" : "gap-12"}`}>
-      {NAV_LINKS.map(({ label, href, current }) => (
-        <li key={label}>
-          <a
-            href={href}
-            className="text-lg text-[#C1C1C1] hover:text-[#4FC3F7]"
-            onClick={onClick}
-            aria-current={current ? "page" : undefined}
-          >
-            {label}
-          </a>
-        </li>
-      ))}
-    </ul>
-  );
-}
+import MenuLinks from "../UI/MenuLinks";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header
-      id="header"
-      className="fixed top-0 left-0 w-full px-12 py-6 z-50 bg-[#1A1A1A]"
-    >
+    <header id="header" className="fixed top-0 left-0 w-full px-12 py-6 z-50 bg-[#1A1A1A]">
       <div className="flex items-center justify-between">
-        <span
-          role="img"
-          aria-label="Logotipo Natan Rocha"
-          className="text-white text-2xl font-bold"
-        >
+        <span role="img" aria-label="Logotipo Natan Rocha" className="text-white text-2xl font-bold">
           Natan Rocha
         </span>
 
@@ -63,11 +19,7 @@ export default function Header() {
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
         >
-          {isOpen ? (
-            <X size={28} aria-hidden="true" />
-          ) : (
-            <Menu size={28} aria-hidden="true" />
-          )}
+          {isOpen ? <X size={28} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
         </button>
 
         <nav className="hidden md:flex z-10" aria-label="Navegação principal">
