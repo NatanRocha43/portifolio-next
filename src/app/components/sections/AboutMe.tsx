@@ -2,7 +2,7 @@ import { ArrowDownToLine } from "lucide-react";
 
 export default function AboutMe() {
     return (
-        <section className="flex justify-center relative h-screen items-center snap-start">
+        <section className="flex justify-center relative h-screen items-center">
             <div className="flex flex-col items-center gap-6 px-4 max-w-xl lg:max-w-4xl text-center">
                 <div className="flex flex-col items-center gap-2">
                     <h2 className="text-2xl lg:text-5xl font-extrabold text-white">Sobre mim</h2>

@@ -5,7 +5,7 @@ import ServiceCard from "../UI/ServiceCard"
 const ServicesSection: FC = () => {
   return (
     <section
-      className="w-full relative min-h-screen snap-start flex flex-col items-center justify-center py-12"
+      className="w-full relative min-h-screen flex flex-col items-center justify-center py-12"
       aria-labelledby="services-title"
     >
       <div className="flex flex-col mx-auto items-center gap-6 px-4 max-w-xl lg:max-w-4xl text-center pt-[140px] lg:pt-0">
