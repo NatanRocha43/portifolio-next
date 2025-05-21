@@ -1,6 +1,7 @@
-import Header from "./_components/_header/Header";
-import AboutMe from "./_components/_main/AboutMe";
-import Hero from "./_components/_main/Hero";
+import Header from "./components/sections/Header";
+import AboutMe from "./components/sections/AboutMe";
+import Hero from "./components/sections/Hero";
+import ServiceWorker from "./components/sections/ServicesSection";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <main>
         <Hero />
         <AboutMe />
+        <ServiceWorker />
       </main>
     </>
   );
