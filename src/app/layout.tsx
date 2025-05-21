@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Natan – Desenvolvedor Front-End | Portfólio",
   description: "Portfólio de Natan, desenvolvedor Front-End com experiência em React, Next.js, Stencil.js, TypeScript, VTEX IO e Drupal. Interfaces modernas e performáticas.",
   icons: {
-    icon: '/favicon.png',
+    icon: "/favicon.png",
   },
 };
 

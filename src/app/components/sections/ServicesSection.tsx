@@ -1,14 +1,14 @@
-import React, { FC } from 'react'
-import { services } from '../../_data/services'
-import ServiceCard from '../UI/ServiceCard'
+import React, { FC } from "react"
+import { services } from "../../_data/services"
+import ServiceCard from "../UI/ServiceCard"
 
 const ServicesSection: FC = () => {
   return (
     <section
-      className="w-full pt-32 lg:pt-36"
+      className="w-full pt-32 lg:pt-36 "
       aria-labelledby="services-title"
     >
-      <div className='flex flex-col mx-auto items-center gap-6 px-4 max-w-xl lg:max-w-4xl text-center'>
+      <div className="flex flex-col mx-auto items-center gap-6 px-4 max-w-xl lg:max-w-4xl text-center">
           <h2
             id="services-title"
             className="text-2xl lg:text-5xl font-extrabold text-white text-center"

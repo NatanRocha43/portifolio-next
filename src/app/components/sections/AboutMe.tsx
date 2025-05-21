@@ -1,4 +1,4 @@
-import { ArrowDownToLine } from 'lucide-react';
+import { ArrowDownToLine } from "lucide-react";
 
 export default function AboutMe() {
     return (
