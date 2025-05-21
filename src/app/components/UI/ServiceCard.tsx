@@ -7,7 +7,6 @@ const ServiceCard: FC<{ service: Service }> = ({ service }) => {
 
   return (
     <article
-      role="group"
       aria-labelledby={titleId}
       aria-describedby={descriptionId}
       className={`bg-neutral-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out cursor-default ${
