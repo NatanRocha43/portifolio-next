@@ -15,7 +15,7 @@ export default function Hero() {
         style={{ objectFit: "cover", objectPosition: "center" }}
         aria-hidden="true"
       />
-      <div className="relative flex flex-col items-center justify-center gap-4 z-10">
+      <div className="relative flex flex-col items-center justify-center gap-4 z-10 pt-5 lg:pt-0">
         <Image
           src="/self.svg"
           alt="Foto de perfil de Natan Rocha"

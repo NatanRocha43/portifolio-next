@@ -8,7 +8,7 @@ const ServicesSection: FC = () => {
       className="w-full relative min-h-screen flex flex-col items-center justify-center py-12"
       aria-labelledby="services-title"
     >
-      <div className="flex flex-col mx-auto items-center gap-6 px-4 max-w-xl lg:max-w-4xl text-center pt-[140px] lg:pt-0">
+      <div className="flex flex-col mx-auto items-center gap-6 px-4 max-w-xl lg:max-w-4xl text-center">
         <h2
           id="services-title"
           className="text-2xl lg:text-5xl font-extrabold text-white text-center"
