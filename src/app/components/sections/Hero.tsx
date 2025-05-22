@@ -30,9 +30,9 @@ export default function Hero() {
 
         <div className="flex flex-col items-center gap-2">
           <h1 className="text-5xl lg:text-6xl font-bold tracking-[-0.06em] text-white">Natan Rocha</h1>
-          <span className="text-3xl lg:text-4xl font-extrabold leading-tight bg-gradient-to-r from-[#4FC3F7] to-white bg-clip-text text-transparent">
+          <h2 className="text-3xl lg:text-4xl font-extrabold leading-tight bg-gradient-to-r from-[#4FC3F7] to-white bg-clip-text text-transparent">
             Front end
-          </span>
+          </h2>
         </div>
 
 
