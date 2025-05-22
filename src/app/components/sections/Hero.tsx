@@ -10,7 +10,7 @@ export default function Hero() {
       aria-label="Seção principal do perfil de Natan Rocha"
     >
       <Image
-        src="/bg-hero.svg"
+        src="/bg-hero.png"
         alt="Background hero"
         fill
         style={{ objectFit: "cover", objectPosition: "center" }}
@@ -18,7 +18,7 @@ export default function Hero() {
       />
       <div className="relative flex flex-col items-center justify-center gap-4 z-10 pt-5 lg:pt-0">
         <Image
-          src="/self.svg"
+          src="/self.webp"
           alt="Foto de perfil de Natan Rocha"
           width={200}
           height={200}
