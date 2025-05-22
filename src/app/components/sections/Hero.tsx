@@ -5,6 +5,7 @@ import { MessageCircle } from "lucide-react";
 export default function Hero() {
   return (
     <div
+      id="section-home"
       className="relative h-screen flex items-center justify-center"
       aria-label="Seção principal do perfil de Natan Rocha"
     >

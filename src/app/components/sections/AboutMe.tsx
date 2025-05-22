@@ -4,7 +4,7 @@ import { SectionTitle } from '../UI/SectionTitle';
 
 export default function AboutMe() {
     return (
-        <section className="flex justify-center relative h-screen items-center">
+        <section className="flex justify-center relative h-screen items-center" id="section-about">
             <div className="flex flex-col items-center gap-6 px-4 max-w-xl lg:max-w-4xl text-center">
                 <SectionTitle
                     id="services-title"

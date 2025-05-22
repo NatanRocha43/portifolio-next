@@ -51,13 +51,13 @@ export default function Formulario() {
     };
 
     return (
-        <section className="min-h-screen flex flex-col items-center justify-center px-4">
+        <section className="min-h-screen flex flex-col items-center justify-center px-4" id='section-form'>
             <div aria-labelledby="form-title" className="w-full max-w-md flex flex-col items-center gap-6">
 
                 <SectionTitle
                     id="form-title"
                     title="Entre em contato"
-                    subtitle="Vamos trabalhar juntos"
+                    subtitle="Envie sua mensagem"
                 />
 
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6 w-full" noValidate>
