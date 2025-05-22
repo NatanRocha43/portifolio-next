@@ -28,15 +28,15 @@ export default function Hero() {
           className="rounded-full w-[200px] h-[200px]"
         />
 
-        <div className="flex flex-col items-center gap-2">
-          <h1 id="natan-title" className="text-5xl lg:text-6xl font-bold tracking-[-0.06em] text-white">Natan Rocha</h1>
-          <h2 className="text-3xl lg:text-4xl font-extrabold leading-tight bg-gradient-to-r from-[#4FC3F7] to-white bg-clip-text text-transparent">
+        <h1 id="natan-title" className="flex flex-col items-center gap-2 text-white text-center">
+          <span className="text-5xl lg:text-6xl font-bold tracking-[-0.06em]">Natan Rocha</span>
+          <span className="text-3xl lg:text-4xl font-extrabold leading-tight bg-gradient-to-r from-[#4FC3F7] to-white bg-clip-text text-transparent">
             Front end
-          </h2>
-        </div>
+          </span>
+        </h1>
 
         <div className="px-0.5 lg:px-[unset] max-w-xs lg:max-w-3xl">
-          <p aria-labelledby="natan-title" className="text-center text-sm lg:text-base font-medium leading-[30px] text-[#E1E1E1]">
+          <p className="text-center text-sm lg:text-base font-medium leading-[30px] text-[#E1E1E1]">
             Desenvolvedor front-end com foco em interfaces dinâmicas, usabilidade e performance web.
             Atuo na criação de soluções digitais eficientes e intuitivas,
             traduzindo requisitos complexos em experiências funcionais
