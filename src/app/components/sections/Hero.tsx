@@ -29,12 +29,11 @@ export default function Hero() {
         />
 
         <div className="flex flex-col items-center gap-2">
-          <h1 className="text-5xl lg:text-6xl font-bold tracking-[-0.06em] text-white">Natan Rocha</h1>
+          <h1 id="natan-title" className="text-5xl lg:text-6xl font-bold tracking-[-0.06em] text-white">Natan Rocha</h1>
           <h2 className="text-3xl lg:text-4xl font-extrabold leading-tight bg-gradient-to-r from-[#4FC3F7] to-white bg-clip-text text-transparent">
             Front end
           </h2>
         </div>
-
 
         <div className="px-0.5 lg:px-[unset] max-w-xs lg:max-w-3xl">
           <p aria-labelledby="natan-title" className="text-center text-sm lg:text-base font-medium leading-[30px] text-[#E1E1E1]">
