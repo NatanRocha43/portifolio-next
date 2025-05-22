@@ -13,7 +13,7 @@ export default function Hero() {
         src="/bg-hero.png"
         alt="Background hero"
         fill
-        style={{ objectFit: "cover", objectPosition: "center" }}
+        loading="lazy"        
         aria-hidden="true"
       />
       <div className="relative flex flex-col items-center justify-center gap-4 z-10 pt-5 lg:pt-0">
