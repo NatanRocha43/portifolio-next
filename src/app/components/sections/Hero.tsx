@@ -24,7 +24,7 @@ export default function Hero() {
           height={200}
           fetchPriority="high"
           priority
-          className="rounded-full w-32 h-32 md:w-48 md:h-48"
+          className="hidden md:block rounded-full md:w-48 md:h-48"
         />
 
         <div className="flex flex-col items-center gap-2">
