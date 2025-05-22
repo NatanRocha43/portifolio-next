@@ -1,6 +1,6 @@
 import IconButton from "../UI/IconButton";
 import { ArrowDownToLine } from "lucide-react";
-import { SectionTitle } from '../UI/SectionTitle';
+import { SectionTitle } from "../UI/SectionTitle";
 
 export default function AboutMe() {
     return (

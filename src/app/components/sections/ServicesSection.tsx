@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import { services } from "../../_data/services"
 import ServiceCard from "../UI/ServiceCard"
-import { SectionTitle } from '../UI/SectionTitle';
+import { SectionTitle } from "../UI/SectionTitle";
 
 const ServicesSection: FC = () => {
   return (
@@ -10,7 +10,7 @@ const ServicesSection: FC = () => {
       aria-labelledby="services-title"
     >
       <div className="flex flex-col mx-auto items-center gap-6 px-4 max-w-xl lg:max-w-4xl text-center">
-        
+
         <SectionTitle
           id="Serivices"
           title="O que eu faço"

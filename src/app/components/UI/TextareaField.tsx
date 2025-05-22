@@ -1,4 +1,4 @@
-import { forwardRef, TextareaHTMLAttributes } from 'react';
+import { forwardRef, TextareaHTMLAttributes } from "react";
 
 type TextareaFieldProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   id: string;
@@ -18,11 +18,11 @@ export const TextareaField = forwardRef<HTMLTextAreaElement, TextareaFieldProps>
         {...rest}
         className={`w-full p-3 rounded-lg border border-gray-700 bg-transparent text-white placeholder-gray-400 resize-none
           focus:ring-2 focus:ring-blue-500 focus:outline-none
-          ${error ? 'border-red-500' : 'border-gray-700'}`}
+          ${error ? "border-red-500" : "border-gray-700"}`}
       />
       {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
     </div>
   )
 );
 
-TextareaField.displayName = 'TextareaField';
+TextareaField.displayName = "TextareaField";

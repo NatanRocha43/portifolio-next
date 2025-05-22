@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
 import "./styles/globals.css";
 
 const poppins = Poppins({

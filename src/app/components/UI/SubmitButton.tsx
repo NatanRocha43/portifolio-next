@@ -3,7 +3,7 @@ interface SubmitButtonProps {
     label?: string;
   }
   
-  export function SubmitButton({ isSubmitting, label = 'Enviar' }: SubmitButtonProps) {
+  export function SubmitButton({ isSubmitting, label = "Enviar" }: SubmitButtonProps) {
     return (
       <button
         type="submit"
@@ -11,7 +11,7 @@ interface SubmitButtonProps {
         aria-busy={isSubmitting}
         className="w-full bg-white text-black py-3 rounded-lg font-semibold cursor-pointer text-sm"
       >
-        {isSubmitting ? 'Enviando...' : label}
+        {isSubmitting ? "Enviando..." : label}
       </button>
     );
   }

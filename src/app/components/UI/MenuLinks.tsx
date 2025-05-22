@@ -1,7 +1,7 @@
 import React from "react";
 
 const NAV_LINKS = [
-  { label: "Home", href: "section-home", current: true },
+  { label: "Início", href: "section-home", current: true },
   { label: "Sobre mim", href: "section-about" },
   { label: "Projects", href: "projects" },
   { label: "Formulário", href: "section-form" },
@@ -16,7 +16,6 @@ interface MenuLinksProps {
 export default function MenuLinks({ onClick, isMobile = false, hidden = false }: MenuLinksProps) {
   if (hidden) return null;
 
-  // Função para scroll suave
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
 
