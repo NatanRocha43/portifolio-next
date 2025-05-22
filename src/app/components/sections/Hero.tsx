@@ -27,39 +27,31 @@ export default function Hero() {
           className="rounded-full w-[200px] h-[200px]"
         />
 
-        <h1 className="text-5xl lg:text-6xl font-bold tracking-[-0.06em] text-white">
-          Natan Rocha
-        </h1>
-
-        <div
-          className="flex items-center gap-2"
-          role="group"
-          aria-label="Título Front end com ícone"
-        >
-          <h2 className="text-3xl lg:text-4xl font-extrabold leading-tight">
-            <span className="bg-gradient-to-r from-[#4FC3F7] to-white bg-clip-text text-transparent">
-              Front end
-            </span>
-          </h2>
+        <div className="flex flex-col items-center gap-2">
+          <h1 className="text-5xl lg:text-6xl font-bold tracking-[-0.06em] text-white">Natan Rocha</h1>
+          <span className="text-3xl lg:text-4xl font-extrabold leading-tight bg-gradient-to-r from-[#4FC3F7] to-white bg-clip-text text-transparent">
+            Front end
+          </span>
         </div>
+
 
         <div className="px-0.5 lg:px-[unset] max-w-xs lg:max-w-3xl">
           <h3 className="text-center text-sm lg:text-base font-medium leading-[30px] text-[#E1E1E1]">
-            Desenvolvedor front-end com foco em interfaces dinâmicas, usabilidade e performance web. 
-            Atuo na criação de soluções digitais eficientes e intuitivas, 
-            traduzindo requisitos complexos em experiências funcionais 
+            Desenvolvedor front-end com foco em interfaces dinâmicas, usabilidade e performance web.
+            Atuo na criação de soluções digitais eficientes e intuitivas,
+            traduzindo requisitos complexos em experiências funcionais
             que agregam valor ao produto.
           </h3>
         </div>
         <IconButton
-        href="https://wa.me/5515997109030?text=Vim%20pelo%20seu%20portfólio!"
-        target="_blank"
-        rel="noopener noreferrer"
-        ariaLabel="Contato via WhatsApp"
-        text="Contact Me"
-        icon={<MessageCircle aria-hidden="true" className="h-5 w-5" strokeWidth={2} />}
-        className="flex w-fit"
-      />
+          href="https://wa.me/5515997109030?text=Vim%20pelo%20seu%20portfólio!"
+          target="_blank"
+          rel="noopener noreferrer"
+          ariaLabel="Contato via WhatsApp"
+          text="Contact Me"
+          icon={<MessageCircle aria-hidden="true" className="h-5 w-5" strokeWidth={2} />}
+          className="flex w-fit"
+        />
       </div>
     </div>
   );

@@ -1,16 +1,16 @@
 import IconButton from "../UI/IconButton";
 import { ArrowDownToLine } from "lucide-react";
+import { SectionTitle } from '../UI/SectionTitle';
 
 export default function AboutMe() {
     return (
         <section className="flex justify-center relative h-screen items-center">
             <div className="flex flex-col items-center gap-6 px-4 max-w-xl lg:max-w-4xl text-center">
-                <div className="flex flex-col items-center gap-2">
-                    <h2 className="text-2xl lg:text-5xl font-extrabold text-white">Sobre mim</h2>
-                    <span className="text-sm lg:text-3xl font-extrabold leading-tight bg-gradient-to-r from-[#4FC3F7] to-white bg-clip-text text-transparent">
-                        Conheça-me
-                    </span>
-                </div>
+                <SectionTitle
+                    id="services-title"
+                    title="Sobre mim"
+                    subtitle="Conheça-me"
+                />
                 <p className="text-xs lg:text-sm font-medium leading-relaxed text-[#E1E1E1]">
                     Oi! Eu sou o Natan, apaixonado por tecnologia, design e tudo que envolve criar experiências digitais que façam sentido de verdade.
                     Desde pequeno sempre gostei de entender como as coisas funcionam, e foi essa curiosidade que me levou para o mundo do desenvolvimento web.
