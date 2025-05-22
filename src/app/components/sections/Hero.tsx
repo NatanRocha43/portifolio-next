@@ -22,9 +22,10 @@ export default function Hero() {
           alt="Foto de perfil de Natan Rocha"
           width={200}
           height={200}
-          fetchPriority="high" 
+          fetchPriority="high"
           priority
-          className="rounded-full w-[200px] h-[200px]"
+          className="rounded-full"
+          sizes="(max-width: 768px) 128px, 200px"
         />
 
         <div className="flex flex-col items-center gap-2">
