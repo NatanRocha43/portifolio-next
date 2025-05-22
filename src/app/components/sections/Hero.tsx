@@ -24,7 +24,7 @@ export default function Hero() {
           height={200}
           fetchPriority="high"
           priority
-          className="rounded-full"
+          className="rounded-full w-32 h-32 md:w-48 md:h-48"
           sizes="(max-width: 768px) 128px, 200px"
         />
 
