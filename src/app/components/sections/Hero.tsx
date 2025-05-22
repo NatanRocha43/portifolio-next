@@ -20,11 +20,10 @@ export default function Hero() {
         <Image
           src="/self.svg"
           alt="Foto de perfil de Natan Rocha"
-          width={200}
-          height={200}
-          fetchPriority="high"
-          priority
-          className="hidden md:block rounded-full md:w-48 md:h-48"
+          width={128}        
+          height={128}
+          loading="lazy"       
+          className="rounded-full w-32 h-32 md:w-48 md:h-48"
         />
 
         <div className="flex flex-col items-center gap-2">
