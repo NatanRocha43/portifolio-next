@@ -13,7 +13,6 @@ export default function Hero() {
         src="/bg-hero.svg"
         alt="Background hero"
         fill
-        priority
         style={{ objectFit: "cover", objectPosition: "center" }}
         aria-hidden="true"
       />
@@ -23,7 +22,7 @@ export default function Hero() {
           alt="Foto de perfil de Natan Rocha"
           width={200}
           height={200}
-          loading="eager"
+          fetchPriority="high" 
           priority
           className="rounded-full w-[200px] h-[200px]"
         />
