@@ -23,7 +23,7 @@ export default function Hero() {
           width={128}
           height={128}
           loading="lazy"
-          className="rounded-full w-32 h-32 md:w-48 md:h-48"
+          className="rounded-full w-24 h-24 md:w-48 md:h-48"
         />
 
         <div className="flex flex-col items-center gap-2">
