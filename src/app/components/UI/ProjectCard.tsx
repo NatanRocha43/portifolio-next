@@ -9,7 +9,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, onClick }: ProjectCardProps) {
   return (
-    <article
+    <div
       onClick={onClick}
       role="button"
       tabIndex={0}
@@ -38,6 +38,6 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
           {project.techs.join(" - ")}
         </p>
       </div>
-    </article>
+    </div>
   );
 }

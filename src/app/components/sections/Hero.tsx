@@ -10,24 +10,26 @@ export default function Hero() {
       aria-label="Seção principal do perfil de Natan Rocha"
     >
       <Image
-        src="/bg-hero.png"
+        src="/bg-hero.svg"
         alt="Background hero"
         fill
-        loading="lazy"        
+        loading="lazy"
         aria-hidden="true"
       />
       <div className="relative flex flex-col items-center justify-center gap-4 z-10 pt-5 lg:pt-0">
         <Image
           src="/self.svg"
           alt="Foto de perfil de Natan Rocha"
-          width={128}        
+          width={128}
           height={128}
-          loading="lazy"       
+          loading="lazy"
           className="rounded-full w-32 h-32 md:w-48 md:h-48"
         />
 
         <div className="flex flex-col items-center gap-2">
-          <h1 className="text-5xl lg:text-6xl font-bold tracking-[-0.06em] text-white">Natan Rocha</h1>
+          <h1 className="text-5xl lg:text-6xl font-bold tracking-[-0.06em] text-white">
+            Natan Rocha
+          </h1>
           <h2 className="text-3xl lg:text-4xl font-extrabold leading-tight bg-gradient-to-r from-[#4FC3F7] to-white bg-clip-text text-transparent">
             Front end
           </h2>
@@ -39,7 +41,13 @@ export default function Hero() {
           rel="noopener noreferrer"
           ariaLabel="Contato via WhatsApp"
           text="Contact Me"
-          icon={<MessageCircle aria-hidden="true" className="h-5 w-5" strokeWidth={2} />}
+          icon={
+            <MessageCircle
+              aria-hidden="true"
+              className="h-5 w-5"
+              strokeWidth={2}
+            />
+          }
           className="flex w-fit"
         />
       </div>
