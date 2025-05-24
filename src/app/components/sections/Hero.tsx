@@ -27,7 +27,7 @@ export default function Hero() {
         />
 
         <div className="flex flex-col items-center gap-2">
-          <h1 className="text-5xl lg:text-6xl font-bold tracking-[-0.06em] text-white">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-[-0.06em] text-white">
             Natan Rocha
           </h1>
           <h2 className="text-3xl lg:text-4xl font-extrabold leading-tight bg-gradient-to-r from-[#4FC3F7] to-white bg-clip-text text-transparent">
