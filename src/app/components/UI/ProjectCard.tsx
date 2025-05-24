@@ -1,10 +1,10 @@
-'use client'
-import Image from 'next/image'
-import { Project } from '../../_data/projects'
+"use client";
+import Image from "next/image";
+import { Project } from "../../_data/projects";
 
 interface ProjectCardProps {
-  project: Project
-  onClick: () => void
+  project: Project;
+  onClick: () => void;
 }
 
 export function ProjectCard({ project, onClick }: ProjectCardProps) {
@@ -14,9 +14,9 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault()
-          onClick()
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick();
         }
       }}
       className="cursor-pointer border rounded-lg overflow-hidden shadow hover:shadow-lg transition  focus:outline-blue-500"
@@ -27,15 +27,17 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
           src={project.image}
           alt={`Imagem do projeto ${project.title}`}
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: "cover" }}
           className="rounded-t"
           loading="lazy"
         />
       </div>
       <div className="p-4">
         <h3 className="text-base font-extrabold text-white">{project.title}</h3>
-        <p className="text-xs font-medium leading-relaxed text-[#E1E1E1]">{project.techs.join(' - ')}</p>
+        <p className="text-xs font-medium leading-relaxed text-[#E1E1E1]">
+          {project.techs.join(" - ")}
+        </p>
       </div>
     </article>
-  )
+  );
 }
