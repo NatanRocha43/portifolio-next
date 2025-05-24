@@ -110,7 +110,7 @@ export const projects: Project[] = [
   {
     id: 6,
     title: "ZenBox",
-    image: "/ZenBox.svg",
+    image: "/zenbox.svg",
     techs: ["JavaScript", "React", "Scss"],
     description: `Neste projeto freelance, desenvolvi uma landing page (LP) para uma equipe, utilizando JavaScript, React e SCSS. 
     O objetivo principal foi criar uma interface visualmente atraente, responsiva e otimizada para conversão, alinhada com a identidade visual e os 
