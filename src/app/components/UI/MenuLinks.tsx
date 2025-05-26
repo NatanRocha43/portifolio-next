@@ -3,7 +3,7 @@ import React from "react";
 const NAV_LINKS = [
   { label: "Início", href: "section-home", current: true },
   { label: "Sobre mim", href: "section-about" },
-  { label: "Projects", href: "projects" },
+  { label: "Projetos", href: "projects" },
   { label: "Formulário", href: "section-form" },
 ];
 

@@ -49,7 +49,7 @@ export default function ProjectsPage() {
     }, [showAll])
 
     return (
-        <div className="flex flex-col justify-center min-h-screen m-auto gap-6 max-w-xl lg:max-w-4xl px-4" role="main">
+        <div className="flex flex-col justify-center min-h-screen m-auto gap-6 max-w-xl lg:max-w-4xl px-4" role="main" id="projects">
             <SectionTitle
                 id="projects-title"
                 title="Projetos"

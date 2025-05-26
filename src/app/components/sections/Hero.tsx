@@ -40,7 +40,7 @@ export default function Hero() {
           target="_blank"
           rel="noopener noreferrer"
           ariaLabel="Contato via WhatsApp"
-          text="Contact Me"
+          text="Entre em contato"
           icon={
             <MessageCircle
               aria-hidden="true"
