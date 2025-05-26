@@ -5,7 +5,7 @@ import { SectionTitle } from "../UI/SectionTitle";
 
 const ServicesSection: FC = () => {
   return (
-    <section
+    <div
       className="w-full relative min-h-screen flex flex-col items-center justify-center py-12"
       aria-labelledby="services-title"
     >
@@ -22,7 +22,7 @@ const ServicesSection: FC = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
 
   )
 }

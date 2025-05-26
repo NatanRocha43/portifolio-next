@@ -19,7 +19,7 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
           onClick();
         }
       }}
-      className="cursor-pointer border rounded-lg overflow-hidden shadow hover:shadow-lg transition  focus:outline-blue-500"
+      className="cursor-pointer bg-neutral-800 rounded-xl shadow-md transform transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 hover:scale-[1.015] hover:bg-neutral-700"
       aria-label={`Abrir detalhes do projeto ${project.title}`}
     >
       <div className="relative w-full h-48">
