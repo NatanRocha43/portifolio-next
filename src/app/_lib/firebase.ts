@@ -1,3 +1,4 @@
+// src/app/_lib/firebase.ts
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
@@ -10,7 +11,7 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID!,
 };
 
-const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+const firestoreDb = getFirestore(app);
 
-export { db };
+export { app, firestoreDb };

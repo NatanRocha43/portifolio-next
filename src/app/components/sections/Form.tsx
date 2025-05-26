@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../_lib/firebase";
+import { firestoreDb } from "../../_lib/firebase";
 import toast from "react-hot-toast";
 
 import { SectionTitle } from "../UI/SectionTitle";
@@ -38,7 +38,7 @@ export function Form() {
     const toastId = toast.loading("Enviando...");
 
     try {
-      await addDoc(collection(db, "formularios"), { ...data, criadoEm: new Date() });
+      await addDoc(collection(firestoreDb, "formularios"), { ...data, criadoEm: new Date() });
       toast.success("Formulário enviado com sucesso!", { id: toastId });
       reset();
     } catch (error) {
