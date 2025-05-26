@@ -18,12 +18,14 @@ export default function Hero() {
       />
       <div className="relative flex flex-col items-center justify-center gap-4 z-10 pt-5 lg:pt-0">
         <Image
-          src="/self.svg"
+          src="/self.webp"
           alt="Foto de perfil de Natan Rocha"
-          width={128}
-          height={128}
+          width={200}
+          height={200}
           priority
-          className="rounded-full w-24 h-24 md:w-48 md:h-48"
+          className="rounded-full"
+          fetchPriority="high"
+          placeholder="empty" 
         />
 
         <div className="flex flex-col items-center gap-2">
