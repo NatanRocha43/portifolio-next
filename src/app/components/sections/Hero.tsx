@@ -13,7 +13,7 @@ export default function Hero() {
         src="/bg-hero.svg"
         alt="Background hero"
         fill
-        loading="lazy"
+        priority
         aria-hidden="true"
       />
       <div className="relative flex flex-col items-center justify-center gap-4 z-10 pt-5 lg:pt-0">
@@ -22,7 +22,7 @@ export default function Hero() {
           alt="Foto de perfil de Natan Rocha"
           width={128}
           height={128}
-          loading="lazy"
+          priority
           className="rounded-full w-24 h-24 md:w-48 md:h-48"
         />
 
