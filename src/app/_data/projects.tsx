@@ -10,7 +10,7 @@ export const projects: Project[] = [
   {
     id: 1,
     title: "TIM",
-    image: "/tim.svg",
+    image: "/tim.webp",
     techs: [
       "Drupal",
       "DX8",
@@ -44,7 +44,7 @@ export const projects: Project[] = [
   {
     id: 2,
     title: "Carinhoso",
-    image: "/carinhoso.svg",
+    image: "/malwee-kids.webp",
     techs: ["JavaScript", "Node.js", "React", "Scss", "VTEX IO", "VTEX Legacy"],
     description: `Atuei em um projeto na plataforma VTEX Legacy, focado na correção de bugs e implementação de novas funcionalidades utilizando JavaScript, 
     React e SCSS. Minha responsabilidade incluía a análise detalhada dos problemas reportados, desenvolvimento de soluções eficazes e testes para garantir 
@@ -59,7 +59,7 @@ export const projects: Project[] = [
   {
     id: 3,
     title: "Malwee",
-    image: "/malwee.svg",
+    image: "/malwee.webp",
     techs: ["JavaScript", "Node.js", "React", "Scss", "VTEX IO", "VTEX Legacy"],
     description: `Atuei na migração das páginas institucionais da plataforma VTEX Legacy para VTEX IO, garantindo a correta transição dos conteúdos e 
     funcionalidades relacionadas à comunicação institucional do site. O foco principal foi manter a integridade visual e funcional dessas páginas durante o
@@ -75,7 +75,7 @@ export const projects: Project[] = [
   {
     id: 4,
     title: "Bringeri",
-    image: "/bringeri.svg",
+    image: "/bringeri.webp",
     techs: ["JavaScript", "Node.js", "React", "Scss", "Vtex IO", "Vtex Legacy"],
     description: `Além dos projetos principais, também atuei em paralelo na migração da página de produto da plataforma VTEX Legacy para VTEX IO. 
     Essa migração foi essencial para modernizar a arquitetura da aplicação, aproveitando as funcionalidades e melhorias nativas da nova plataforma VTEX IO.
@@ -91,7 +91,7 @@ export const projects: Project[] = [
   {
     id: 5,
     title: "Jumbo",
-    image: "/jumbo.svg",
+    image: "/jumbo.webp",
     techs: ["GraphQL", "JavaScript", "Node.js", "React", "Scss", "Vtex IO"],
     description: `Paralelamente ao meu trabalho principal em Easy, também atuei como suporte técnico para uma segunda equipe, igualmente sediada na Argentina, 
     sempre que surgiam demandas que exigiam reforço no desenvolvimento front-end. Essa colaboração adicional envolveu tanto a implementação de novas
@@ -110,7 +110,7 @@ export const projects: Project[] = [
   {
     id: 6,
     title: "ZenBox",
-    image: "/zenbox.png",
+    image: "/zenbox.webp",
     techs: ["JavaScript", "React", "Scss"],
     description: `Neste projeto freelance, desenvolvi uma landing page (LP) para uma equipe, utilizando JavaScript, React e SCSS. 
     O objetivo principal foi criar uma interface visualmente atraente, responsiva e otimizada para conversão, alinhada com a identidade visual e os 
@@ -126,7 +126,7 @@ export const projects: Project[] = [
   {
     id: 7,
     title: "Easy",
-    image: "/easy.svg",
+    image: "/easy.webp",
     techs: ["GraphQL", "JavaScript", "Node.js", "React", "Scss", "Vtex IO"],
     description: `Neste projeto, atuei por mais de um ano como desenvolvedor front-end na evolução de uma aplicação construída na plataforma VTEX IO,
     utilizando JavaScript, TypeScript, React, SCSS e Node.js.
@@ -146,7 +146,7 @@ export const projects: Project[] = [
   {
     id: 8,
     title: "Clone Promotions",
-    image: "/clone.svg",
+    image: "/vtex.webp",
     techs: ["JavaScript", "Node.js", "React", "Scss", "TypeScript", "Vtex IO"],
     description: `Este foi o meu primeiro projeto desenvolvido na plataforma VTEX IO, com foco exclusivo no front-end, 
     utilizando JavaScript, TypeScript, React e SCSS. A solução foi construída especificamente para atender às necessidades da própria plataforma VTEX,
@@ -166,7 +166,7 @@ export const projects: Project[] = [
   {
     id: 9,
     title: "Notion Start Form",
-    image: "/sobtic.svg",
+    image: "/sobtic.webp",
     techs: ["CSS", "JavaScript", "Node.js", "Notion API", "React"],
     description: `
     Este foi o meu primeiro projeto profissional como desenvolvedor front-end, no qual atuei de forma independente 

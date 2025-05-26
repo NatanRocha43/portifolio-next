@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import { Project } from "../../_data/projects";
 
@@ -6,7 +5,6 @@ interface ProjectCardProps {
   project: Project;
   onClick: () => void;
 }
-
 export function ProjectCard({ project, onClick }: ProjectCardProps) {
   return (
     <div
@@ -22,13 +20,13 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
       className="cursor-pointer bg-neutral-800 rounded-xl shadow-md transform transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 hover:scale-[1.015] hover:bg-neutral-700"
       aria-label={`Abrir detalhes do projeto ${project.title}`}
     >
-      <div className="relative w-full h-48">
+      <div className="flex flex-col bg-white">
         <Image
           src={project.image}
           alt={`Imagem do projeto ${project.title}`}
-          fill
-          style={{ objectFit: "cover" }}
-          className="rounded-t"
+          width={300}
+          height={190}
+          className="rounded-t w-[300px] h-[190px] scale-[0.95]"
           loading="lazy"
         />
       </div>
