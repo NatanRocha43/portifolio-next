@@ -12,6 +12,14 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Natan – Desenvolvedor Front-End | Portfólio",
   description: "Portfólio de Natan, desenvolvedor Front-End com experiência em React, Next.js, Stencil.js, TypeScript, VTEX IO e Drupal. Interfaces modernas e performáticas.",
+  keywords: "Portfólio, Front-End, Desenvolvedor Web, React, Drupal, VTEX, Stencil.js",
+  robots: "index, follow",
+  openGraph: {
+    title: "Natan | Desenvolvedor Front-End",
+    description: "Portfólio profissional de Natan, especialista em projetos modernos e otimizados.",
+    url: "https://portifolio-next-eight.vercel.app",
+    type: "website"
+  },
   icons: {
     icon: "/favicon.png",
   },
