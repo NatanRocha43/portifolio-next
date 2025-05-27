@@ -21,7 +21,7 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
       aria-label={`Abrir detalhes do projeto ${project.title}`}
     >
       <div className="flex flex-col bg-white ">
-        <div className="relative w-full max-w-[300px] aspect-[300/190]">
+        <div className="relative w-full max-w-[300px] aspect-[300/190] m-auto">
           <Image
             src={project.image}
             alt={`Imagem do projeto ${project.title}`}
