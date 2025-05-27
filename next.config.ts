@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   experimental: {
     esmExternals: true,  
   },
+  legacyBrowsers: false,
   reactStrictMode: true,
 };
 
