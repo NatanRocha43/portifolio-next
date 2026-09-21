@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Natan Rocha | Desenvolvedor Front-End",
-    description: "Portfólio profissional de Natan Rocha, especialista em engenharia de interface, performance web e e-commerce.",
+    description: "Portfólio profissional de Natan Rocha, especialista em desenvolvimento de interfaces, performance web e e-commerce.",
     url: "https://portifolio-next-eight.vercel.app",
     type: "website",
     locale: "pt_BR",

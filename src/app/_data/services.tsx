@@ -6,7 +6,7 @@ export type { Service };
 
 export const services: Service[] = [
   {
-    title: "Engenharia de Interface & Acessibilidade",
+    title: "Desenvolvimento de Interface & Acessibilidade",
     description:
       "Construção de interfaces responsivas, reativas e com conformidade estrita às diretrizes WCAG 2.1 AA. Foco em tempos de carregamento instantâneos, fidelidade pixel-perfect e experiência fluida em qualquer dispositivo.",
     icon: <Cpu className="w-6 h-6 text-[#8B5CF6]" aria-hidden="true" />,

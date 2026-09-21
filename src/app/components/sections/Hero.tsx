@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="w-full flex flex-col items-start text-left">
         {/* Big Editorial Heading with Fraunces */}
         <h1 className="font-display text-4xl sm:text-6xl lg:text-[72px] font-bold tracking-tight text-[#1A1A1A] leading-[1.1] max-w-4xl mb-6">
-          Engenharia Front-End &{" "}
+          Desenvolvimento Front-End &{" "}
           <span className="bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] bg-clip-text text-transparent italic font-normal">
             interfaces de alta performance
           </span>{" "}

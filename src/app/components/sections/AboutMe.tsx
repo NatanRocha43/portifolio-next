@@ -58,7 +58,7 @@ export default function AboutMe() {
     >
       <SectionTitle
         title="Sobre Mim"
-        description="Engenheiro front-end dedicado a transformar problemas complexos em interfaces leves, intuitivas e sustentáveis."
+        description="Desenvolvedor front-end dedicado a transformar problemas complexos em interfaces leves, intuitivas e sustentáveis."
       />
 
       <div className="flex flex-col gap-12">

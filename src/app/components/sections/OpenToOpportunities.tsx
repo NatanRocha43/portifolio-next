@@ -4,7 +4,7 @@ const ROLES = [
   "Front-End Developer (Pleno / Senior)",
   "Especialista VTEX IO & E-commerce",
   "Especialista Drupal DX8 & Stencil.js",
-  "Engenharia React & Next.js",
+  "Desenvolvimento React & Next.js",
   "Projetos Freelance & Consultoria",
 ] as const;
 
