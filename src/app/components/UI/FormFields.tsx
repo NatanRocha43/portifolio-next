@@ -1,7 +1,10 @@
+"use client";
+
 import { UseFormRegister, FieldErrors, UseFormWatch } from "react-hook-form";
 import { ContactFormData } from "../../_types";
 import { InputField } from "../UI/InputField";
 import { TextareaField } from "../UI/TextareaField";
+import { useLanguage } from "../../context/LanguageContext";
 
 type FormFieldsProps = {
   register: UseFormRegister<ContactFormData>;
@@ -10,6 +13,7 @@ type FormFieldsProps = {
 };
 
 export function FormFields({ register, errors, watch }: FormFieldsProps) {
+  const { t } = useLanguage();
   const nomeValue = watch("nome");
   const emailValue = watch("email");
   const mensagemValue = watch("mensagem");
@@ -18,8 +22,8 @@ export function FormFields({ register, errors, watch }: FormFieldsProps) {
     <div className="flex flex-col gap-4 w-full">
       <InputField
         id="nome"
-        label="Seu Nome"
-        placeholder="Como posso te chamar?"
+        label={t.contact.labels.name}
+        placeholder={t.contact.placeholders.name}
         error={nomeValue ? errors.nome?.message : undefined}
         isInvalid={!!errors.nome && !!nomeValue}
         isValid={!errors.nome && (nomeValue?.length ?? 0) > 0}
@@ -30,9 +34,9 @@ export function FormFields({ register, errors, watch }: FormFieldsProps) {
 
       <InputField
         id="email"
-        label="Seu E-mail"
+        label={t.contact.labels.email}
         type="email"
-        placeholder="exemplo@email.com"
+        placeholder={t.contact.placeholders.email}
         error={emailValue ? errors.email?.message : undefined}
         isInvalid={!!errors.email && !!emailValue}
         isValid={!errors.email && (emailValue?.length ?? 0) > 0}
@@ -43,8 +47,8 @@ export function FormFields({ register, errors, watch }: FormFieldsProps) {
 
       <TextareaField
         id="mensagem"
-        label="Mensagem"
-        placeholder="Conte-me sobre o seu projeto ou ideia..."
+        label={t.contact.labels.message}
+        placeholder={t.contact.placeholders.message}
         error={mensagemValue ? errors.mensagem?.message : undefined}
         isInvalid={!!errors.mensagem && !!mensagemValue}
         isValid={!errors.mensagem && (mensagemValue?.length ?? 0) > 0}

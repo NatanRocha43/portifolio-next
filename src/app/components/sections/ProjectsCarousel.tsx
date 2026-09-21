@@ -1,19 +1,21 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
-import { projects } from "../../_data/projects";
+import { useState, useRef, useEffect, useCallback, useMemo } from "react";
+import { projects as defaultProjects } from "../../_data/projects";
 import { Project } from "../../_types";
 import dynamic from "next/dynamic";
 import { ProjectIcon } from "../UI/ProjectIcon";
 import { SectionTitle } from "../UI/SectionTitle";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useLanguage } from "../../context/LanguageContext";
 
 const Modal = dynamic(() => import("../UI/Modal").then((mod) => mod.Modal), {
   ssr: false,
 });
 
 export default function ProjectsCarousel() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const { t } = useLanguage();
+  const [selectedProjectId, setSelectedProjectId] = useState<number | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -21,13 +23,28 @@ export default function ProjectsCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const lastFocusedElementRef = useRef<HTMLElement | null>(null);
 
+  const localizedProjects: Project[] = useMemo(() => {
+    return t.projects.items.map((item) => {
+      const defaultProj = defaultProjects.find((p) => p.id === item.id) || defaultProjects[0];
+      return {
+        ...defaultProj,
+        ...item,
+      };
+    });
+  }, [t.projects.items]);
+
+  const selectedProject = useMemo(() => {
+    if (selectedProjectId === null) return null;
+    return localizedProjects.find((p) => p.id === selectedProjectId) || null;
+  }, [selectedProjectId, localizedProjects]);
+
   const handleOpenModal = (project: Project) => {
     lastFocusedElementRef.current = document.activeElement as HTMLElement;
-    setSelectedProject(project);
+    setSelectedProjectId(project.id);
   };
 
   const handleCloseModal = () => {
-    setSelectedProject(null);
+    setSelectedProjectId(null);
     // Retorna foco para o card que abriu o modal
     setTimeout(() => {
       lastFocusedElementRef.current?.focus();
@@ -46,7 +63,7 @@ export default function ProjectsCarousel() {
     setCanScrollRight(!isAtEnd);
 
     if (isAtEnd) {
-      setCurrentIndex(projects.length - 1);
+      setCurrentIndex(localizedProjects.length - 1);
       return;
     }
 
@@ -70,7 +87,7 @@ export default function ProjectsCarousel() {
     });
 
     setCurrentIndex(closestIndex);
-  }, []);
+  }, [localizedProjects.length]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -90,15 +107,15 @@ export default function ProjectsCarousel() {
     const el = scrollRef.current;
     if (!el) return;
 
-    const safeIndex = Math.max(0, Math.min(projects.length - 1, index));
+    const safeIndex = Math.max(0, Math.min(localizedProjects.length - 1, index));
     const cards = Array.from(el.querySelectorAll<HTMLElement>("[data-carousel-card]"));
 
-    if (safeIndex === projects.length - 1) {
+    if (safeIndex === localizedProjects.length - 1) {
       el.scrollTo({
         left: el.scrollWidth - el.clientWidth,
         behavior: "smooth",
       });
-      setCurrentIndex(projects.length - 1);
+      setCurrentIndex(localizedProjects.length - 1);
       return;
     }
 
@@ -134,15 +151,15 @@ export default function ProjectsCarousel() {
       id="projects"
       role="region"
       aria-roledescription="carrossel"
-      aria-label="Projetos e Trajetória Profissional de Natan Rocha"
+      aria-label={t.projects.title}
       className="py-20 sm:py-28 px-6 sm:px-12 max-w-[1200px] mx-auto w-full border-t border-[#E5E4E1] overflow-hidden"
     >
       {/* Header with Title and Nav Controls */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-12">
         <div className="[&>div]:mb-0">
           <SectionTitle
-            title="Projetos & Experiência"
-            description="Casos de sucesso reais, migrações de plataformas corporativas e arquitetura front-end de alta performance."
+            title={t.projects.title}
+            description={t.projects.subtitle}
           />
         </div>
 
@@ -152,9 +169,9 @@ export default function ProjectsCarousel() {
             <span className="sr-only">Slide atual: </span>
             {String(currentIndex + 1).padStart(2, "0")}{" "}
             <span className="text-[#5C5C5C] font-normal" aria-hidden="true">
-              / {String(projects.length).padStart(2, "0")}
+              / {String(localizedProjects.length).padStart(2, "0")}
             </span>
-            <span className="sr-only"> de {projects.length}</span>
+            <span className="sr-only"> de {localizedProjects.length}</span>
           </span>
 
           <div className="flex items-center gap-2">
@@ -164,7 +181,7 @@ export default function ProjectsCarousel() {
               disabled={!canScrollLeft}
               aria-controls="projects-track"
               className="w-11 h-11 rounded-full border border-[#E5E4E1] bg-white flex items-center justify-center text-[#1A1A1A] hover:border-[#7C3AED] hover:bg-[#F0EFED] hover:text-[#7C3AED] transition-all disabled:opacity-30 disabled:pointer-events-none cursor-pointer shadow-xs active:scale-95 focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:outline-none"
-              aria-label="Projeto anterior"
+              aria-label={t.projects.prevLabel}
             >
               <ArrowLeft className="w-4 h-4" aria-hidden="true" />
             </button>
@@ -175,7 +192,7 @@ export default function ProjectsCarousel() {
               disabled={!canScrollRight}
               aria-controls="projects-track"
               className="w-11 h-11 rounded-full border border-[#E5E4E1] bg-white flex items-center justify-center text-[#1A1A1A] hover:border-[#7C3AED] hover:bg-[#F0EFED] hover:text-[#7C3AED] transition-all disabled:opacity-30 disabled:pointer-events-none cursor-pointer shadow-xs active:scale-95 focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:outline-none"
-              aria-label="Próximo projeto"
+              aria-label={t.projects.nextLabel}
             >
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </button>
@@ -190,14 +207,14 @@ export default function ProjectsCarousel() {
         className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-8 -mr-6 sm:-mr-12 pr-6 sm:pr-12 cursor-grab active:cursor-grabbing select-none"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
-        {projects.map((project, idx) => (
+        {localizedProjects.map((project) => (
           <div
             key={project.id}
             data-carousel-card
             onClick={() => handleOpenModal(project)}
             role="group"
             aria-roledescription="slide"
-            aria-label={`Projeto ${idx + 1} de ${projects.length}: ${project.company} - ${project.title}`}
+            aria-label={`${project.company} - ${project.title}`}
             tabIndex={0}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
@@ -261,7 +278,7 @@ export default function ProjectsCarousel() {
 
               {/* Card Action Link */}
               <div className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1A1A1A] group-hover:text-[#7C3AED] group-hover:gap-2.5 transition-all">
-                <span>Ver Estudo de Caso Completo</span>
+                <span>{t.projects.viewDetails}</span>
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </div>
             </div>
@@ -274,7 +291,7 @@ export default function ProjectsCarousel() {
 
       {/* Interactive Dots Pagination com touch target acessível de 44px */}
       <div className="flex items-center justify-center gap-1 mt-4 px-6" role="tablist" aria-label="Indicadores dos slides de projetos">
-        {projects.map((proj, idx) => (
+        {localizedProjects.map((proj, idx) => (
           <button
             key={idx}
             type="button"
@@ -283,7 +300,7 @@ export default function ProjectsCarousel() {
             aria-controls="projects-track"
             onClick={() => scrollToIndex(idx)}
             className="min-w-[40px] min-h-[44px] sm:min-w-[44px] p-2.5 flex items-center justify-center cursor-pointer focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:outline-none rounded-full"
-            aria-label={`Ir para projeto ${idx + 1} de ${projects.length}: ${proj.company}`}
+            aria-label={`${proj.company} (${idx + 1}/${localizedProjects.length})`}
           >
             <span
               className={`transition-all duration-300 rounded-full block pointer-events-none ${

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import { useLanguage } from "../../context/LanguageContext";
 
 const BRANDS = [
   "TIM",
@@ -41,85 +42,95 @@ interface Category {
   items: string[];
 }
 
-const CATEGORIES: Category[] = [
-  {
-    key: "all",
-    label: "Todos",
-    items: [...BRANDS, ...ECOSYSTEMS, ...TECHNOLOGIES],
-  },
-  {
-    key: "brands",
-    label: "Marcas",
-    items: BRANDS,
-  },
-  {
-    key: "ecosystems",
-    label: "Ecossistemas",
-    items: ECOSYSTEMS,
-  },
-  {
-    key: "technologies",
-    label: "Tecnologias",
-    items: TECHNOLOGIES,
-  },
-];
-
 export default function BrandsMarquee() {
+  const { language } = useLanguage();
   const [activeTab, setActiveTab] = useState<CategoryKey>("all");
 
+  const categories: Category[] = useMemo(() => [
+    {
+      key: "all",
+      label: language === "en" ? "All" : "Todos",
+      items: [...BRANDS, ...ECOSYSTEMS, ...TECHNOLOGIES],
+    },
+    {
+      key: "brands",
+      label: language === "en" ? "Brands" : "Marcas",
+      items: BRANDS,
+    },
+    {
+      key: "ecosystems",
+      label: language === "en" ? "Ecosystems" : language === "es" ? "Ecosistemas" : "Ecossistemas",
+      items: ECOSYSTEMS,
+    },
+    {
+      key: "technologies",
+      label: language === "en" ? "Technologies" : language === "es" ? "Tecnologías" : "Tecnologias",
+      items: TECHNOLOGIES,
+    },
+  ], [language]);
+
   const currentCategory = useMemo(() => {
-    return CATEGORIES.find((c) => c.key === activeTab) || CATEGORIES[0];
-  }, [activeTab]);
+    return categories.find((c) => c.key === activeTab) || categories[0];
+  }, [activeTab, categories]);
 
   // Garante que o total de repetições seja sempre um número par para transição perfeita de -50%
   const marqueeItems = useMemo(() => {
-    const current = currentCategory.items;
-    const baseRepeat = Math.ceil(24 / (current.length || 1));
-    const repeatCount = baseRepeat % 2 === 0 ? Math.max(2, baseRepeat) : baseRepeat + 1;
-    return Array.from({ length: repeatCount }).flatMap(() => current);
+    const list = currentCategory.items;
+    const minItems = 24;
+    const multiplier = Math.ceil(minItems / list.length);
+    const evenMultiplier = multiplier % 2 === 0 ? multiplier : multiplier + 1;
+    return Array(evenMultiplier).fill(list).flat();
   }, [currentCategory]);
 
-  const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
-    let nextIndex = index;
+  const handleKeyDown = (e: React.KeyboardEvent, currentIndex: number) => {
+    let nextIndex = currentIndex;
+
     if (e.key === "ArrowRight") {
-      nextIndex = (index + 1) % CATEGORIES.length;
+      nextIndex = (currentIndex + 1) % categories.length;
     } else if (e.key === "ArrowLeft") {
-      nextIndex = (index - 1 + CATEGORIES.length) % CATEGORIES.length;
+      nextIndex = (currentIndex - 1 + categories.length) % categories.length;
     } else if (e.key === "Home") {
       nextIndex = 0;
     } else if (e.key === "End") {
-      nextIndex = CATEGORIES.length - 1;
+      nextIndex = categories.length - 1;
     } else {
       return;
     }
 
     e.preventDefault();
-    const nextCategory = CATEGORIES[nextIndex];
+    const nextCategory = categories[nextIndex];
     setActiveTab(nextCategory.key);
     const nextTabButton = document.getElementById(`tab-${nextCategory.key}`);
     nextTabButton?.focus();
   };
 
+  const sectionTitle =
+    language === "en"
+      ? "Brands, Ecosystems & Technologies"
+      : language === "es"
+      ? "Marcas, Ecosistemas & Tecnologías"
+      : "Marcas, Ecossistemas & Tecnologias";
+
   return (
     <section
-      aria-label="Marcas, Ecossistemas e Tecnologias"
+      aria-label={sectionTitle}
       className="w-full border-y border-[#E5E4E1] py-6 sm:py-8 bg-[#FAFAF9] overflow-hidden"
     >
       <div className="max-w-[1200px] mx-auto px-6 sm:px-12 mb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         {/* Section Heading */}
         <div>
           <h2 className="font-display font-bold text-lg sm:text-xl text-[#1A1A1A] tracking-tight">
-            Marcas, Ecossistemas & Tecnologias
+            {sectionTitle}
           </h2>
         </div>
 
         {/* Filter Tabs com suporte a WAI-ARIA e navegação por setas */}
         <div
           role="tablist"
-          aria-label="Filtro de Marcas, Ecossistemas e Tecnologias"
+          aria-label={sectionTitle}
           className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-none"
         >
-          {CATEGORIES.map((cat, idx) => {
+          {categories.map((cat, idx) => {
             const isActive = activeTab === cat.key;
             return (
               <button

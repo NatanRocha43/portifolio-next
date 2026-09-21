@@ -4,12 +4,15 @@ import { Project } from "../../_types";
 import { ProjectIcon } from "./ProjectIcon";
 import { X, Calendar, Briefcase, CheckCircle2, Target, Cpu } from "lucide-react";
 
+import { useLanguage } from "../../context/LanguageContext";
+
 interface ModalProps {
   project: Project;
   onClose: () => void;
 }
 
 export function Modal({ project, onClose }: ModalProps) {
+  const { t, language } = useLanguage();
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -62,6 +65,9 @@ export function Modal({ project, onClose }: ModalProps) {
     }
   };
 
+  const overviewLabel =
+    language === "en" ? "Overview" : language === "es" ? "Visión General" : "Visão Geral";
+
   return (
     <div
       onClick={handleBackdropClick}
@@ -80,7 +86,7 @@ export function Modal({ project, onClose }: ModalProps) {
           ref={closeButtonRef}
           onClick={onClose}
           className="absolute top-4 right-4 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white border border-[#E5E4E1] text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#FAFAF9] flex items-center justify-center transition-all cursor-pointer shadow-xs focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:outline-none"
-          aria-label="Fechar detalhes do projeto"
+          aria-label={t.modal.close}
         >
           <X size={20} aria-hidden="true" />
         </button>
@@ -125,7 +131,7 @@ export function Modal({ project, onClose }: ModalProps) {
           {/* Executive Summary */}
           <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E5E4E1] shadow-xs">
             <span className="text-[11px] font-semibold tracking-wider uppercase text-[#6D28D9] block mb-1.5">
-              Visão Geral
+              {overviewLabel}
             </span>
             <p id="modal-project-summary" className="text-sm sm:text-base text-[#1A1A1A] leading-relaxed font-medium">
               {project.summary}
@@ -136,7 +142,7 @@ export function Modal({ project, onClose }: ModalProps) {
           <div>
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#1A1A1A] mb-2.5">
               <Target className="w-4 h-4 text-[#7C3AED]" aria-hidden="true" />
-              Contexto & Desafio
+              {t.modal.challengeTitle}
             </div>
             <p className="text-sm sm:text-base text-[#5C5C5C] leading-relaxed font-normal">
               {project.challenge}
@@ -147,7 +153,7 @@ export function Modal({ project, onClose }: ModalProps) {
           <div>
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#1A1A1A] mb-2.5">
               <Cpu className="w-4 h-4 text-[#7C3AED]" aria-hidden="true" />
-              Solução Técnica & Arquitetura
+              {t.modal.solutionTitle}
             </div>
             <p className="text-sm sm:text-base text-[#5C5C5C] leading-relaxed font-normal">
               {project.solution}
@@ -159,7 +165,7 @@ export function Modal({ project, onClose }: ModalProps) {
             <div>
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#1A1A1A] mb-3">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" aria-hidden="true" />
-                Impactos & Resultados Chave
+                {t.modal.resultsTitle}
               </div>
               <ul className="space-y-2.5">
                 {project.results.map((result, idx) => (
@@ -178,7 +184,7 @@ export function Modal({ project, onClose }: ModalProps) {
           {/* Technologies Used */}
           <div className="border-t border-[#E5E4E1] pt-6">
             <span className="text-xs font-semibold tracking-wider uppercase text-[#5C5C5C] block mb-3">
-              Tecnologias & Metodologias
+              {t.modal.techsTitle}
             </span>
             <div className="flex flex-wrap gap-2">
               {project.techs.map((tech) => (

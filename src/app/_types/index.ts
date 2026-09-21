@@ -1,5 +1,7 @@
 import React from "react";
 
+export type Language = "pt" | "en" | "es";
+
 export type ProjectIconType = "drupal" | "vtex" | "react" | "notion";
 
 export type Project = {

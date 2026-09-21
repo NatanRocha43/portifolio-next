@@ -4,10 +4,13 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import MenuLinks from "../UI/MenuLinks";
+import LanguageSwitcher from "../UI/LanguageSwitcher";
+import { useLanguage } from "../../context/LanguageContext";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +48,7 @@ export default function Header() {
       <a
         href="#home"
         className="flex items-center gap-2.5 group text-[#1A1A1A] rounded-full focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:outline-none"
-        aria-label="Natan Rocha - Desenvolvedor Front-End, ir para o início"
+        aria-label={t.header.aria.logoLabel}
       >
         <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border-2 border-[#E5E4E1] group-hover:border-[#7C3AED] transition-colors">
           <Image
@@ -60,23 +63,24 @@ export default function Header() {
         <span className="font-display font-bold text-lg tracking-tight">
           Natan Rocha
           <span className="text-xs font-normal text-[#5C5C5C] ml-1.5 hidden sm:inline">
-            • Front-End
+            {t.header.roleTag}
           </span>
         </span>
       </a>
 
       {/* Desktop Nav Links */}
-      <nav className="hidden md:flex items-center" aria-label="Navegação principal">
+      <nav className="hidden md:flex items-center" aria-label={t.header.aria.mainNav}>
         <MenuLinks />
       </nav>
 
-      {/* Desktop Quick CTA */}
-      <div className="hidden md:flex items-center">
+      {/* Desktop Language Switcher & Quick CTA */}
+      <div className="hidden md:flex items-center gap-3">
+        <LanguageSwitcher />
         <a
           href="#contact"
           className="inline-flex items-center gap-1 px-5 py-2 rounded-full bg-[#1A1A1A] text-[#FAFAF9] text-xs font-medium hover:-translate-y-0.5 hover:shadow-md transition-all active:scale-95 focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:outline-none"
         >
-          Fale Comigo →
+          {t.header.cta}
         </a>
       </div>
 
@@ -85,7 +89,7 @@ export default function Header() {
         type="button"
         className="md:hidden w-11 h-11 flex items-center justify-center text-[#1A1A1A] rounded-lg focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:outline-none cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
-        aria-label={isOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
+        aria-label={isOpen ? t.header.aria.closeMenu : t.header.aria.openMenu}
         aria-expanded={isOpen}
         aria-controls="mobile-navigation"
       >
@@ -96,16 +100,19 @@ export default function Header() {
       {isOpen && (
         <nav
           id="mobile-navigation"
-          aria-label="Navegação mobile"
+          aria-label={t.header.aria.mainNav}
           className="absolute top-full left-0 w-full bg-[#FAFAF9] border-b border-[#E5E4E1] p-6 flex flex-col gap-6 shadow-xl md:hidden animate-fade-up"
         >
+          <div className="flex justify-center pb-2 border-b border-[#E5E4E1]/60">
+            <LanguageSwitcher isMobile />
+          </div>
           <MenuLinks isMobile onClick={() => setIsOpen(false)} />
           <a
             href="#contact"
             onClick={() => setIsOpen(false)}
             className="w-full text-center py-3 min-h-[44px] flex items-center justify-center rounded-full bg-[#1A1A1A] text-[#FAFAF9] text-sm font-medium shadow-sm focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:outline-none"
           >
-            Fale Comigo →
+            {t.header.cta}
           </a>
         </nav>
       )}

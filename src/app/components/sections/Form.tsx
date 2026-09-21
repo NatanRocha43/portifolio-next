@@ -11,6 +11,7 @@ import { SubmitButton } from "../UI/SubmitButton";
 import { ArrowUpRight } from "lucide-react";
 import { FaLinkedin, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { ContactFormData } from "../../_types";
+import { useLanguage } from "../../context/LanguageContext";
 
 const FormSchema = z.object({
   nome: z.string().min(2, "Nome muito curto"),
@@ -42,6 +43,7 @@ const SOCIAL_LINKS = [
 ] as const;
 
 export function Form() {
+  const { t, language } = useLanguage();
   const {
     register,
     handleSubmit,
@@ -57,7 +59,7 @@ export function Form() {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    const toastId = toast.loading("Enviando mensagem...");
+    const toastId = toast.loading(t.contact.submitting);
 
     try {
       const [{ collection, addDoc }, { firestoreDb }] = await Promise.all([
@@ -69,27 +71,48 @@ export function Form() {
         ...data,
         criadoEm: new Date(),
       });
-      toast.success("Mensagem enviada com sucesso! Entrarei em contato em breve.", {
+      toast.success(t.contact.successToast, {
         id: toastId,
       });
       reset();
     } catch (error) {
       console.error("Erro ao enviar:", error);
-      toast.error("Erro ao enviar formulário. Tente novamente pelo WhatsApp!", {
+      toast.error(t.contact.errorToast, {
         id: toastId,
       });
     }
   };
 
+  const directHeading =
+    language === "en"
+      ? "Let's discuss your next project."
+      : language === "es"
+      ? "Hablemos sobre tu próximo proyecto."
+      : "Vamos conversar sobre o seu próximo projeto.";
+
+  const directDescription =
+    language === "en"
+      ? "Whether to join an agile engineering team, consult on VTEX IO / Drupal DX8 migrations, or build high-converting interfaces."
+      : language === "es"
+      ? "Ya sea para integrarme a un equipo ágil, consultoría en migraciones VTEX IO / Drupal DX8 o desarrollo de interfaces de alta conversión."
+      : "Seja para integrar um time ágil de tecnologia, atuar em consultoria de migração para VTEX IO / Drupal DX8 ou desenvolver interfaces de alta conversão.";
+
+  const formCardTitle =
+    language === "en"
+      ? "Send a Message"
+      : language === "es"
+      ? "Envía un mensaje"
+      : "Envie uma mensagem";
+
   return (
     <section
       id="contact"
       className="py-20 sm:py-28 px-6 sm:px-12 max-w-[1200px] mx-auto w-full border-t border-[#E5E4E1]"
-      aria-label="Entre em contato com Natan Rocha"
+      aria-label={t.contact.title}
     >
       <SectionTitle
-        title="Contato"
-        description="Tem uma vaga, parceria ou projeto em mente? Ficarei muito feliz em conversar com você."
+        title={t.contact.title}
+        description={t.contact.subtitle}
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 items-start">
@@ -97,10 +120,10 @@ export function Form() {
         <div className="flex flex-col gap-6">
           <div>
             <h3 className="font-display text-xl sm:text-2xl font-bold text-[#1A1A1A] tracking-tight mb-3">
-              Vamos conversar sobre o seu próximo projeto.
+              {directHeading}
             </h3>
             <p className="text-base text-[#5C5C5C] leading-relaxed font-normal mb-6">
-              Seja para integrar um time ágil de tecnologia, atuar em consultoria de migração para VTEX IO / Drupal DX8 ou desenvolver interfaces de alta conversão.
+              {directDescription}
             </p>
 
             <a
@@ -146,12 +169,12 @@ export function Form() {
         {/* Right Column: Contact Form Card */}
         <div className="p-7 sm:p-9 rounded-2xl bg-white border border-[#E5E4E1] shadow-xs">
           <h3 className="font-display text-xl sm:text-2xl font-bold text-[#1A1A1A] tracking-tight mb-6">
-            Envie uma mensagem
+            {formCardTitle}
           </h3>
           <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 w-full" noValidate>
             <FormFields register={register} errors={errors} watch={watch} />
             <div className="pt-2">
-              <SubmitButton isSubmitting={isSubmitting} isDisabled={!isValid} />
+              <SubmitButton isSubmitting={isSubmitting} isDisabled={!isValid} label={t.contact.submit} />
             </div>
           </form>
         </div>

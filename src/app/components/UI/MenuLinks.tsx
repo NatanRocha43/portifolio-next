@@ -1,11 +1,7 @@
-import React from "react";
+"use client";
 
-export const NAV_LINKS = [
-  { label: "Sobre", href: "about" },
-  { label: "Soluções", href: "services" },
-  { label: "Projetos & Trajetória", href: "projects" },
-  { label: "Contato", href: "contact" },
-];
+import React from "react";
+import { useLanguage } from "../../context/LanguageContext";
 
 interface MenuLinksProps {
   onClick?: () => void;
@@ -14,7 +10,16 @@ interface MenuLinksProps {
 }
 
 export default function MenuLinks({ onClick, isMobile = false, hidden = false }: MenuLinksProps) {
+  const { t } = useLanguage();
+
   if (hidden) return null;
+
+  const links = [
+    { label: t.header.nav.about, href: "about" },
+    { label: t.header.nav.services, href: "services" },
+    { label: t.header.nav.projects, href: "projects" },
+    { label: t.header.nav.contact, href: "contact" },
+  ];
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -29,8 +34,8 @@ export default function MenuLinks({ onClick, isMobile = false, hidden = false }:
 
   return (
     <ul className={`flex ${isMobile ? "flex-col gap-5 items-center w-full" : "items-center gap-7"}`}>
-      {NAV_LINKS.map(({ label, href }) => (
-        <li key={label}>
+      {links.map(({ label, href }) => (
+        <li key={href}>
           <a
             href={`#${href}`}
             className={`rounded-md px-1 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:outline-none ${
