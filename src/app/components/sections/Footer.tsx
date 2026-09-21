@@ -1,33 +1,21 @@
-// src/app/components/sections/Footer.tsx
-
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import SocialLink from "../UI/SocialLink";
+import { ArrowUp } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A1A1A] text-white py-6 mt-20 border-t border-[#333]">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6">
-        <span className="text-sm text-[#AAAAAA]">
-          &copy; {new Date().getFullYear()} Todos os direitos reservados.
-        </span>
+    <footer role="contentinfo" className="w-full border-t border-[#E5E4E1] bg-[#FAFAF9] py-10 px-6 sm:px-12">
+      <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-[#5C5C5C] font-normal">
+        <p>
+          &copy; {new Date().getFullYear()} Natan Rocha. Desenvolvido com Next.js & TypeScript.
+        </p>
 
-        <div className="flex gap-4 mt-4 md:mt-0">
-          <SocialLink
-            href="https://www.linkedin.com/in/natan-rocha-front/"
-            icon={FaLinkedin}
-            label="Link para o LinkedIn de Natan Rocha"
-          />
-          <SocialLink
-            href="https://github.com/NatanRocha43"
-            icon={FaGithub}
-            label="Link para o GitHub de Natan Rocha"
-          />
-         <SocialLink
-            href="mailto:natan.paularocha@gmail.com"
-            icon={FaEnvelope}
-            label="Enviar e-mail para Natan Rocha"
-            />
-        </div>
+        <a
+          href="#home"
+          className="inline-flex items-center gap-1.5 font-medium text-[#1A1A1A] hover:text-[#7C3AED] transition-colors rounded-md min-h-[44px] px-3 py-2 focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:outline-none"
+          aria-label="Voltar para o topo da página"
+        >
+          <span>Voltar ao topo</span>
+          <ArrowUp className="w-3.5 h-3.5" aria-hidden="true" />
+        </a>
       </div>
     </footer>
   );

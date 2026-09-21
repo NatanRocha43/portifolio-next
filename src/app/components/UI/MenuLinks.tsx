@@ -1,10 +1,10 @@
 import React from "react";
 
-const NAV_LINKS = [
-  { label: "Início", href: "section-home", current: true },
-  { label: "Sobre mim", href: "section-about" },
-  { label: "Projetos", href: "projects" },
-  { label: "Formulário", href: "section-form" },
+export const NAV_LINKS = [
+  { label: "Sobre", href: "about" },
+  { label: "Soluções", href: "services" },
+  { label: "Projetos & Trajetória", href: "projects" },
+  { label: "Contato", href: "contact" },
 ];
 
 interface MenuLinksProps {
@@ -28,14 +28,17 @@ export default function MenuLinks({ onClick, isMobile = false, hidden = false }:
   };
 
   return (
-    <ul className={`flex ${isMobile ? "flex-col gap-4 mt-8 p-4" : "gap-12"}`}>
-      {NAV_LINKS.map(({ label, href, current }) => (
+    <ul className={`flex ${isMobile ? "flex-col gap-5 items-center w-full" : "items-center gap-7"}`}>
+      {NAV_LINKS.map(({ label, href }) => (
         <li key={label}>
           <a
             href={`#${href}`}
-            className="text-lg text-[#C1C1C1] hover:text-[#4FC3F7]"
+            className={`rounded-md px-1 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:outline-none ${
+              isMobile
+                ? "text-lg font-medium text-[#1A1A1A] hover:text-[#7C3AED] min-h-[44px] px-3 py-2 flex items-center justify-center"
+                : "text-sm font-medium text-[#5C5C5C] hover:text-[#1A1A1A]"
+            }`}
             onClick={(e) => handleClick(e, href)}
-            aria-current={current ? "page" : undefined}
           >
             {label}
           </a>

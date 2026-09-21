@@ -1,44 +1,62 @@
-import { Cpu, Search, Ruler, Code2, ServerCog } from "lucide-react"
-import { JSX } from "react/jsx-runtime"
+import React from "react";
+import { Cpu, Search, Ruler, Code2, ServerCog } from "lucide-react";
+import { Service } from "../_types";
 
-export type Service = {
-  title: string
-  description: string
-  icon: JSX.Element
-  spanTwoCols?: boolean
-}
+export type { Service };
 
 export const services: Service[] = [
   {
-    title: "Interfaces Performáticas",
+    title: "Engenharia de Interface & Acessibilidade",
     description:
-      "Desenvolvimento de interfaces responsivas, fluidas e acessíveis, com foco em usabilidade, tempo de carregamento e experiência consistente em múltiplos dispositivos.",
-    icon: <Cpu className="w-7 h-7 text-sky-400 opacity-80" aria-hidden="true" />,
+      "Construção de interfaces responsivas, reativas e com conformidade estrita às diretrizes WCAG 2.1 AA. Foco em tempos de carregamento instantâneos, fidelidade pixel-perfect e experiência fluida em qualquer dispositivo.",
+    icon: <Cpu className="w-6 h-6 text-[#8B5CF6]" aria-hidden="true" />,
+    tags: ["Core Web Vitals", "Acessibilidade WCAG", "Mobile-First", "Design Systems"],
   },
   {
-    title: "SEO",
+    title: "SEO Técnico & Otimização de Performance",
     description:
-      "Implementação de estratégias de SEO técnico para garantir melhor visibilidade nos mecanismos de busca, com foco em estrutura semântica, performance e rastreabilidade.",
-    icon: <Search className="w-7 h-7 text-green-400 opacity-80" aria-hidden="true" />,
+      "Estruturação semântica de dados, metadados enriquecidos para redes sociais, redução de Cumulative Layout Shift (CLS) e otimização de renderização para maximizar a indexabilidade orgânica no Google.",
+    icon: <Search className="w-6 h-6 text-[#8B5CF6]" aria-hidden="true" />,
+    tags: ["SEO Semântico", "OpenGraph", "Lighthouse 95+", "Performance Audit"],
   },
   {
-    title: "Clean Code e Arquitetura",
+    title: "Arquitetura Modular & Clean Code",
     description:
-      "Aplicação de boas práticas como Clean Code, SOLID e modularização, visando legibilidade, manutenibilidade e escalabilidade no desenvolvimento de aplicações.",
-    icon: <Ruler className="w-7 h-7 text-orange-400 opacity-80" aria-hidden="true" />,
+      "Aplicação rigorosa de princípios SOLID, separação clara de responsabilidades e componentização atômica. Código sustentável, de fácil manutenção e pronto para crescer sem criar débitos técnicos.",
+    icon: <Ruler className="w-6 h-6 text-[#8B5CF6]" aria-hidden="true" />,
+    tags: ["Clean Code", "SOLID", "Componentização Atômica", "Refatoração"],
   },
   {
-    title: "Stacks de Front-End",
+    title: "Ecossistema Front-End Moderno",
     description:
-      "HTML5 • CSS3 • Sass • Tailwind CSS • JavaScript • TypeScript • jQuery • React • React Native • Next.js • Stencil.js • Integração com APIs.",
-    icon: <Code2 className="w-7 h-7 text-purple-400 opacity-80" aria-hidden="true" />,
-    spanTwoCols: true,
+      "Domínio completo na construção de SPAs, SSR e SSG combinando React, Next.js e TypeScript com ferramentas de ponta para estilização e gerenciamento de estado.",
+    icon: <Code2 className="w-6 h-6 text-[#8B5CF6]" aria-hidden="true" />,
+    tags: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "Tailwind CSS",
+      "SCSS Modular",
+      "Stencil.js",
+      "HTML5 Semântico",
+      "APIs REST & GraphQL",
+    ],
   },
   {
-    title: "Outras Stacks",
+    title: "Plataformas Enterprise & E-commerce",
     description:
-      "Node.js • Express.js • MongoDB • PostgreSQL • GraphQL • Docker • CI/CD • Git • Drupal (DX8) • VTEX IO • Figma • Metodologias Ágeis.",
-    icon: <ServerCog className="w-7 h-7 text-yellow-400 opacity-80" aria-hidden="true" />,
+      "Vasta experiência no desenvolvimento, customização e migração de grandes plataformas de e-commerce e portais de conteúdo corporativo com equipes internacionais.",
+    icon: <ServerCog className="w-6 h-6 text-[#8B5CF6]" aria-hidden="true" />,
+    tags: [
+      "VTEX IO",
+      "VTEX Legacy",
+      "Drupal DX8",
+      "GraphQL",
+      "Node.js",
+      "Git & GitHub Flow",
+      "Figma",
+      "Scrum / Kanban",
+    ],
   },
-] as const
-
+];

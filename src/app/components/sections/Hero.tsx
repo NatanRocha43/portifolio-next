@@ -1,58 +1,77 @@
-import Image from "next/image";
 import IconButton from "../UI/IconButton";
-import { MessageCircle } from "lucide-react";
+import { ArrowRight, ArrowDownToLine } from "lucide-react";
+
+const STATS = [
+  { value: "+5 Anos", label: "Atuação em Front-End" },
+  { value: "9+", label: "Projetos de Grande Porte" },
+  { value: "100%", label: "Foco em Performance & A11y" },
+] as const;
 
 export default function Hero() {
   return (
-    <div
-      id="section-home"
-      className="relative h-[100dvh] lg:h-screen flex items-center justify-center"
-      aria-label="Seção principal do perfil de Natan Rocha"
+    <section
+      id="home"
+      className="min-h-[92vh] sm:min-h-screen flex items-center pt-32 sm:pt-40 pb-16 px-6 sm:px-12 max-w-[1200px] mx-auto w-full"
+      aria-label="Apresentação de Natan Rocha"
     >
-      <Image
-        src="/bg-hero.svg"
-        alt="Background hero"
-        fill
-        priority
-        aria-hidden="true"
-      />
-      <div className="relative flex flex-col items-center justify-center gap-4 z-10 pt-5 lg:pt-0">
-        <Image
-          src="/self.webp"
-          alt="Foto de perfil de Natan Rocha"
-          width={200}
-          height={200}
-          priority
-          className="rounded-full"
-          fetchPriority="high"
-          placeholder="empty" 
-        />
+      <div className="w-full flex flex-col items-start text-left">
+        {/* Big Editorial Heading with Fraunces */}
+        <h1 className="font-display text-4xl sm:text-6xl lg:text-[72px] font-bold tracking-tight text-[#1A1A1A] leading-[1.1] max-w-4xl mb-6">
+          Engenharia Front-End &{" "}
+          <span className="bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] bg-clip-text text-transparent italic font-normal">
+            interfaces de alta performance
+          </span>{" "}
+          e conversão.
+        </h1>
 
-        <div className="flex flex-col items-center gap-2">
-          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-[-0.06em] text-white">
-            Natan Rocha
-          </h1>
-          <h2 className="text-3xl lg:text-4xl font-extrabold leading-tight bg-gradient-to-r from-[#4FC3F7] to-white bg-clip-text text-transparent">
-            Front end
-          </h2>
+        {/* Subtitle / Description */}
+        <p className="text-base sm:text-lg text-[#5C5C5C] max-w-2xl leading-relaxed mb-10 font-normal">
+          Transformo requisitos complexos de negócios em experiências web rápidas, inclusivas e escaláveis. Especialista no desenvolvimento com React, Next.js, VTEX IO e Drupal DX8, unindo rigor de arquitetura a uma usabilidade impecável.
+        </p>
+
+        {/* Call to Actions */}
+        <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-16 sm:mb-20">
+          <IconButton
+            href="#contact"
+            text="Entrar em Contato"
+            ariaLabel="Ir para o formulário de contato"
+            variant="primary"
+            icon={<ArrowRight className="w-4 h-4" aria-hidden="true" />}
+          />
+
+          <IconButton
+            href="#projects"
+            text="Explorar Trajetória & Projetos"
+            ariaLabel="Navegar até a seção de projetos e casos de sucesso"
+            variant="secondary"
+          />
+
+          <IconButton
+            href="./natan-rocha-front-end.pdf"
+            download="Curriculo-Natan-Rocha-Front-End.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            ariaLabel="Baixar currículo de Natan Rocha em formato PDF (abre em nova aba)"
+            text="Baixar CV"
+            variant="secondary"
+            icon={<ArrowDownToLine className="w-4 h-4 text-[#7C3AED]" aria-hidden="true" />}
+          />
         </div>
 
-        <IconButton
-          href="https://wa.me/5515997109030?text=Vim%20pelo%20seu%20portfólio!"
-          target="_blank"
-          rel="noopener noreferrer"
-          ariaLabel="Contato via WhatsApp"
-          text="Entre em contato"
-          icon={
-            <MessageCircle
-              aria-hidden="true"
-              className="h-5 w-5"
-              strokeWidth={2}
-            />
-          }
-          className="flex w-fit"
-        />
+        {/* Stats Strip - Semântico para leitores de tela */}
+        <dl className="grid grid-cols-3 gap-6 sm:gap-16 pt-8 border-t border-[#E5E4E1] w-full max-w-2xl">
+          {STATS.map((stat) => (
+            <div key={stat.label} className="flex flex-col">
+              <dd className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A1A1A] block tracking-tight order-1">
+                {stat.value}
+              </dd>
+              <dt className="text-xs sm:text-sm text-[#5C5C5C] mt-1 block order-2">
+                {stat.label}
+              </dt>
+            </div>
+          ))}
+        </dl>
       </div>
-    </div>
+    </section>
   );
 }
