@@ -16,12 +16,12 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-[92vh] sm:min-h-screen flex items-center pt-32 sm:pt-40 pb-16 px-6 sm:px-12 max-w-[1200px] mx-auto w-full"
+      className="min-h-[90vh] sm:min-h-screen flex items-center pt-32 sm:pt-40 lg:pt-44 pb-16 px-6 sm:px-12 max-w-[1200px] mx-auto w-full"
       aria-label={t.hero.titlePrefix + t.hero.titleHighlight + t.hero.titleSuffix}
     >
       <div className="w-full flex flex-col items-start text-left">
         {/* Big Editorial Heading with Fraunces */}
-        <h1 className="font-display text-4xl sm:text-6xl lg:text-[72px] font-bold tracking-tight text-[#1A1A1A] leading-[1.1] max-w-4xl mb-6">
+        <h1 className="font-display text-3xl sm:text-5xl lg:text-[70px] xl:text-[72px] font-bold tracking-tight text-[#1A1A1A] leading-[1.15] sm:leading-[1.1] max-w-4xl mb-6">
           {t.hero.titlePrefix}
           <span className="bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] bg-clip-text text-transparent italic font-normal">
             {t.hero.titleHighlight}

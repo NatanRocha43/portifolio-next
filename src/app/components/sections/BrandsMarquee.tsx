@@ -116,7 +116,7 @@ export default function BrandsMarquee() {
       aria-label={sectionTitle}
       className="w-full border-y border-[#E5E4E1] py-6 sm:py-8 bg-[#FAFAF9] overflow-hidden"
     >
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-12 mb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-12 mb-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         {/* Section Heading */}
         <div>
           <h2 className="font-display font-bold text-lg sm:text-xl text-[#1A1A1A] tracking-tight">
