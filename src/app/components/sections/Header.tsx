@@ -38,10 +38,10 @@ export default function Header() {
   return (
     <header
       id="header"
-      className={`fixed top-0 left-0 right-0 z-50 px-6 sm:px-12 flex items-center justify-between transition-all duration-300 bg-[#FAFAF9]/90 backdrop-blur-md ${
+      className={`fixed top-0 left-0 right-0 z-50 px-6 sm:px-12 flex items-center justify-between transition-all duration-300 bg-[#FAFAF9]/90 backdrop-blur-md h-16 sm:h-20 ${
         scrolled
-          ? "py-3.5 border-b border-[#E5E4E1] shadow-xs"
-          : "py-5 border-b border-transparent"
+          ? "border-b border-[#E5E4E1] shadow-xs"
+          : "border-b border-transparent"
       }`}
     >
       {/* Logo with Avatar */}

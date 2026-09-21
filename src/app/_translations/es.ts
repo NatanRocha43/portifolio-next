@@ -3,7 +3,7 @@ import { TranslationDictionary } from "./types";
 export const es: TranslationDictionary = {
   header: {
     nav: {
-      about: "Sobre Mí",
+      about: "Sobre",
       projects: "Proyectos",
       services: "Servicios",
       contact: "Contacto",
